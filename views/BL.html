@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daily Node</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">k
+    <link rel="stylesheet" type="text/css" href="/pure/pure-min.css">
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="/pure/grids-responsive-old-ie-min.css">
+      <link rel="stylesheet" type="text/css" href="/pure-layout-side-menu/css/layouts/side-menu-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="/pure/grids-responsive-min.css">
+      <link rel="stylesheet" type="text/css" href="/pure-layout-side-menu/css/layouts/side-menu.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+  </head>
+  <body>
+    <div id="layout">
+      <!-- Menu toggle -->
+      <a href="#menu" id="menuLink" class="menu-link">
+          <!-- Hamburger icon -->
+          <span></span>
+      </a>
+
+      <div id="menu">
+          <div class="pure-menu pure-menu-open">
+              <a class="pure-menu-heading" href="#">Daily Node</a>
+
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>   <!-- menu-item-divided pure-menu-selected -->
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+
+      <div id="main">
+        <%- body %>      
+      </div>
+    </div>
+    
+    <script type="text/javascript" src="/pure-layout-side-menu/js/ui.js"></script>
+  </body>
+</html>

@@ -1,5 +1,4 @@
 var koa = require('koa')
-var router = require('koa-router')
 var logger = require('koa-logger')
 var serve = require('koa-static')
 var session = require('koa-session')
@@ -8,11 +7,12 @@ var responseTime = require('koa-response-time')
 var ejsRender = require('koa-ejs')
 var path = require('path')
 var config = require('./configs/config.json')
+// var auth = require('koa-basic-auth')
+var koaBody = require('koa-better-body')
 
 //
 var app = koa()
 app.use(responseTime())
-app.use(router(app))
 app.use(serve(path.join(__dirname, '/public')))
 app.use(logger())
 app.keys = ['node-news-secret-pana']
@@ -33,8 +33,16 @@ ejsRender(app, {
     locals: {},
     filters: {}
 })
+// app.use(auth({name: 'pana', pass: 'wang'}))
+app.use(koaBody({
+    multipart: true,
+    formidable: {
+      uploadDir: __dirname + '/uploads'
+    }
+}))
 
 // load routes
+require('./models/db')  // connect to db
 require('./routes')(app)
 
 app.listen(config.port)

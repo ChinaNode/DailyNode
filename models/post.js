@@ -1,6 +1,5 @@
 var mongoose = require('mongoose')
 
-
 var PostSchema = mongoose.Schema({
     title: {type: String, unique: true},
     description: String,
