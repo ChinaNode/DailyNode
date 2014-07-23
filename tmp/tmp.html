@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=400, initial-scale=1.0" />
+    <title>Node Weekly Issue 35 - May 15, 2014</title>
+    <style type="text/css">
+    body {
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        margin: 0;
+        padding: 0;
+        font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    }
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div {
+        line-height: 100%;
+    }
+    table {
+        border-spacing: 0;
+    }
+    table td {
+        border-collapse: collapse;
+    }
+    @media screen and (max-width: 600px) {
+        table[class="container"] {
+            width: 98% !important;
+        }
+        .aright,
+        .aright TD {
+            text-align: left !important;
+            float: none;
+        }
+        td[class='block'] {
+            display: block !important;
+            float: none !important;
+            text-align: left;
+            width: auto;
+        }
+        .aright {
+            padding-top: 8px;
+        }
+        .p14 {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+        .iimg {
+            display: none;
+        }
+    }
+    </style>
+</head>
+
+<body style="margin:0; padding:0px;" bgcolor="#ebebeb" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ebebeb" style="margin-top: 10px">
+        <tr>
+            <td align="center" valign="top" bgcolor="#ebebeb" style="background-color: #ebebeb;">
+                <table border="0" width="600" cellpadding="0" cellspacing="0" class="container" style="border-collapse: collapse;">
+                    <tr>
+                        <td style="padding-top: 6px; padding-bottom: 6px; padding-left: 12px; padding-right: 12px" class="noarchive">
+                            <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                <tr>
+                                    <td align="left" class="block" style="font-family: verdana, helvetica, arial, sans-serif; font-size: 11px">This week's Node news</td>
+                                    <td align="right" class="block" style="font-family: verdana, helvetica, arial, sans-serif; font-size: 11px"> <a href="http://nodeweekly.com/issues/35" style="color: #5c9619">Read this issue on the Web</a> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" width="600" cellpadding="0" cellspacing="0" class="container" style="border-collapse: collapse; box-shadow: 2px 2px 10px #bbbbbb">
+                    <tr>
+                        <td style="padding: 12px; padding-left: 12px; color: #ffffff; padding-right: 12px" bgcolor="#6ca629">
+                            <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                <tr>
+                                    <td align="left" class="block">
+                                        <strong style="font-family: 'helvetica neue', helvetica, arial, sans-serif; font-size: 29px; font-weight: 500; color: #ffffff; letter-spacing: 0px; text-transform: lowercase">Node Weekly</strong>
+                                    </td>
+                                    <td align="right" class="block" style="font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; line-height: 20px; color: #ffffff">
+                                        <strong style="font-size: 15px">Issue 35</strong>
+                                        <br>May 15, 2014</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="container-padding" bgcolor="#ffffff" style="background-color: #ffffff; padding-left: 12px; padding-right: 12px; padding-bottom: 12px; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333;" align="left">
+                            <div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #5c9619; border-bottom: 2px solid #6ca629; margin-top: 18px; ; text-transform: lowercase">Featured</div>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="https://medium.com/@garychambers108/f04dd346108c?utm_source=nodeweekly&amp;utm_medium=email" title="medium.com/@garychambers108/f04dd346108c" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Scaling Node.js with recluster</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>Take advantage of multi-core environments with the <a href="https://github.com/doxout/recluster">recluster</a> library. It provides an API for spawning child processes and scaling out a program to all available cores.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Gary Chambers</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/?utm_source=nodeweekly&amp;utm_medium=email" title="webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Migrating Express.js 3.x to 4.x: Middleware, Route and Other Changes</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>A brief migration guide for bringing your existing Express apps up to speed with version 4 of the popular framework.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Azat Mardanov</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #5c9619; border-bottom: 2px solid #6ca629; margin-top: 18px; ; text-transform: lowercase">From our Sponsor</div>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="https://semaphoreapp.com/green_code?utm_source=nodeweekly&amp;utm_medium=email" title="semaphoreapp.com/green_code" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Green Code, Powered by Semaphore</a> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #333; font-size: 13px; line-height: 18px; padding: 1px 14px 0px 14px" class="p14">Take a turn from staying late to fix a bad deploy. Or updating your test infrastructure. Set up the right continuous delivery process for you and your team. Head for green code.</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Semaphore</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="top" align="right" style="padding-right: 14px; padding-top: 14px;" class="p14">
+                                        <a href="https://semaphoreapp.com/green_code?utm_source=nodeweekly&amp;utm_medium=email" class="iimg">
+                                            <img src="http://s3.amazonaws.com/nlga/uploads/item/image/19084/t.png" alt="" width="120" height="90" style="border-color: #5c9619" border="0">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #5c9619; border-bottom: 2px solid #6ca629; margin-top: 18px; ; text-transform: lowercase">Reading</div>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://scottksmith.com/blog/2014/05/02/building-restful-apis-with-node/?utm_source=nodeweekly&amp;utm_medium=email" title="scottksmith.com/blog/2014/05/02/building-restful-apis-with-node/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Building a RESTful API With Node</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>A multi-part tutorial series that starts off with a problem the author wishes to resolve: ‘With an ever growing collection of beer, I am in dire need of a way to store and track my beer.’</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Scott K Smith</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://blog.nodejitsu.com/a-summary-of-scoped-modules-in-npm/?utm_source=nodeweekly&amp;utm_medium=email" title="blog.nodejitsu.com/a-summary-of-scoped-modules-in-npm/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">A Summary of Scoped Modules in npm</a> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Nodejitsu</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://fredkschott.com/post/2014/05/nodejs-testing-essentials/?utm_source=nodeweekly&amp;utm_medium=email" title="fredkschott.com/post/2014/05/nodejs-testing-essentials/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Node.js Testing Essentials</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>A small part of the Node.js Handbook that quickly introduces a few Node-related testing tools and a <a href="https://github.com/FredKSchott/NodeJS-Handbook/blob/master/04-testing-example.js">code example</a> of them working together.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Fred K Schott</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #5c9619; border-bottom: 2px solid #6ca629; margin-top: 18px; ; text-transform: lowercase">Job</div>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://www.sitepoint.com/write-for-us/?utm_source=nodeweekly&amp;utm_medium=email" title="www.sitepoint.com/write-for-us/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Offered: Fame and Fortune for Your Thoughts</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>If you’ve solved an interesting problem lately, discovered a new tool, or want to showcase your latest project, why not reach a huge audience and be paid for it? SitePoint is always on the lookout for new writers. Write an occasional article, or become a regular contributor.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">SitePoint</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #5c9619; border-bottom: 2px solid #6ca629; margin-top: 18px; ; text-transform: lowercase">Libraries, Code and Tools</div>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://fenixwebserver.com/?utm_source=nodeweekly&amp;utm_medium=email" title="fenixwebserver.com/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Fenix: Static Web Servers for the Desktop</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>A Node-based desktop app that allows you to launch, share, and kill HTTP servers through a pretty GUI. There’s also ssh-tunneling to expose servers to the world. The <a href="https://github.com/coreybutler/fenix">source</a> is an interesting example of a Node desktop app using node-webkit as well.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Corey Butler</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://cody-cms.org/en/?utm_source=nodeweekly&amp;utm_medium=email" title="cody-cms.org/en/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Cody: A CMS on Node.js</a> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Johan Coppieters</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://meanjs.org/?utm_source=nodeweekly&amp;utm_medium=email" title="meanjs.org/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">MEAN.JS: An Open-Source Full-Stack Solution For MEAN Applications</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>Aims to provide a solid starting point for tying MongoDB, Express, AngularJS and Node.js together for webapp development.</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://www.synthjs.com/?utm_source=nodeweekly&amp;utm_medium=email" title="www.synthjs.com/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Synth: A Back-End Framework for Making (Angular|Ember|Backbone) Web Apps Easier to Create</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>A web framework for synthesizing API-first web apps that also have web front-ends.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Jon Abrams</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="https://github.com/lastroom/lastdashboard?utm_source=nodeweekly&amp;utm_medium=email" title="github.com/lastroom/lastdashboard" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Last Dashboard: A Node-powered Dashboard</a> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">LastRoom</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="https://github.com/sindresorhus/trash?utm_source=nodeweekly&amp;utm_medium=email" title="github.com/sindresorhus/trash" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Trash: A Node Command Line App for Moving Files and Directories to The Trash</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>Cross platform. Billed as a safer alternative to ‘rm’.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Sindre Sorhus</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://cryptologie.net/article/109/nodster-node-webkit/?utm_source=nodeweekly&amp;utm_medium=email" title="cryptologie.net/article/109/nodster-node-webkit/" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Nodster: A node-webkit App for Finding and Playing MP3s</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>Use at your own legal risk :-)</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">David Wong</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="https://github.com/stevepapa/veria?utm_source=nodeweekly&amp;utm_medium=email" title="github.com/stevepapa/veria" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Veria CMS: A Lightweight, Responsive Node.js Blogging Platform</a> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Steve Papa</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #5c9619; border-bottom: 2px solid #6ca629; margin-top: 18px; ; text-transform: lowercase">Last but not least..</div>
+                            <table cellspacing="0" cellpadding="0" border="0" style="">
+                                <tr>
+                                    <td style="font-family: Helvetica, arial, sans-serif; " valign="top">
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; line-height: 22px; padding: 14px 14px 0px 14px" class="p14"> <a href="http://docs.stormpath.com/nodejs/api/home?utm_source=node%20weekly&utm_medium=email&utm_campaign=node%20sdk" title="docs.stormpath.com/nodejs/api/home?utm_source=node%20weekly&utm_medium=email&utm_campaign=node%20sdk" style="color: #2518b5; text-decoration: underline; font-weight: 500; ">Stormpath - User Management in Node</a> 
+                                                    <span style="font-size: 13px; line-height: 18px">
+                                                        <span style="color: #999999">&#8212;</span>Stormpath’s Node module and <a href="https://github.com/stormpath/passport-stormpath">Passport integration</a> make it easier to register, authenticate and manage users fast. The Stormpath User Management API handles registration, login, password security, access control, social login, custom profiles and more. npm install stormpath</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; line-height: 16px; padding: 1px 14px 0px 14px" class="p14">
+                                                    <em style="color: #5c9619; text-transform: uppercase;">Stormpath&nbsp;&nbsp;
+                                                        <span style="background-color: #ff9; color: #996">Sponsored</span>
+                                                    </em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ebebeb" style="padding-top: 12px; padding-left: 12px; padding-right: 12px; padding-bottom: 12px" class="noarchive">
+                            <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                <tr>
+                                    <td align="left" width="70%" style="font-family: verdana, helvetica, arial, sans-serif; font-size: 11px; padding-right: 10px; line-height: 14px" class="block" valign="top">Published by <a href="https://cooperpress.com/" style="color: #dd0000">Cooper Press</a>.
+                                        <br>Want to sponsor an issue? See our <a href="https://cooperpress.com/mediakit2014q2.pdf" style="color: #666666">media kit.</a>
+                                        <br>
+                                        <br>&copy; 2014 Cooper Press Ltd. <a href="https://cooperpress.com/spam.html" style="color: #666666">Email policy</a>  <a href="https://cooperpress.com/privacy.html" style="color: #666666">Privacy policy</a>
+                                        <br>Office 30, Fairfield Enterprise Centre, Louth, LN11 0LS, UK
+                                        <br>
+                                        <br>"Node.js" is a trademark owned by Joyent, Inc.
+                                        <br>The term "Node" is used with Joyent, Inc.'s kind permission.</td>
+                                    <td align="right" width="30%" style="font-family: verdana, helvetica, arial, sans-serif; font-size: 11px; line-height: 18px" class="block" valign="top"> <a href="*|UPDATE_PROFILE|*" style="color: #dd0000; font-weight: normal; text-decoration: underline">Update your email address</a>
+                                        <br>or <a href="*|UNSUB|*" style="color: #dd0000; font-weight: bold; text-decoration: underline">unsubscribe here</a> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+</body>
+
+</html>

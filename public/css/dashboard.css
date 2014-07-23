@@ -1,0 +1,21 @@
+#main {
+    padding-left: 20px;
+}
+
+a {
+    color: #3b8bba; /* block-background-text-normal */
+    text-decoration: none;
+}
+
+a:visited {
+    color: #265778; /* block-normal-text-normal */
+}
+
+
+.hcenter {
+    text-align: center;
+}
+
+.paginator {
+    margin-top: 20px;
+}

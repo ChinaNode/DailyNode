@@ -1,0 +1,12 @@
+{
+    "RSS": [
+        {
+            "name": "Nodejitsu",
+            "url": "http://blog.nodejitsu.com/rss/"
+        },
+        {
+            "name": "EchoJS",
+            "url": "http://www.echojs.com/rss"
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Daily Node</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">k
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/pure/pure-min.css">
     <!--[if lte IE 8]>
       <link rel="stylesheet" href="/pure/grids-responsive-old-ie-min.css">
@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="/pure/grids-responsive-min.css">
       <link rel="stylesheet" type="text/css" href="/pure-layout-side-menu/css/layouts/side-menu.css">
     <!--<![endif]-->
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
   </head>
   <body>
     <div id="layout">
@@ -27,7 +27,8 @@
               <a class="pure-menu-heading" href="#">Daily Node</a>
 
               <ul>
-                  <li><a href="#">Home</a></li>
+                  <li><a href="/admin">Home</a></li>
+                  <li><a href="/post">Post</a></li>
                   <li><a href="#">About</a></li>   <!-- menu-item-divided pure-menu-selected -->
                   <li><a href="#">Contact</a></li>
               </ul>
@@ -35,7 +36,7 @@
       </div>
 
       <div id="main">
-        <%- body %>      
+        <%- body %>
       </div>
     </div>
     

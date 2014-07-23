@@ -1,7 +1,14 @@
-Node news hub
+Daily Node
 ======
 
-This is Node.js news hub
+A Node.js news, blog, video, podcast hub.
+
+
+## Reference
+
+* EchoJS
+* Hacker News
+* DailyJs
 
 
 

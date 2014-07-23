@@ -1,0 +1,44 @@
+<h1>Post Lists</h1>
+
+
+<table class='pure-table pure-table-stripe pure-table-horizontal' style='width: 90%'>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+<!--             <th>Description</th>
+            <th>Summary</th>
+ -->
+            <th>PubDate</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (var i in posts) { %>
+        <% var p = posts[i] %>
+        <tr>
+            <td><a href="/posts/<%= p._id %>">#</a></td>
+            <td><a href='<%= p.link %>'><%= p.title %></a></td>
+            <!-- <td><%- p.description %></td> -->
+            <!-- <td><%- p.summary %></td> -->
+            <td><%=: p.pubDate | formatDate %></td>
+            <td><%=: p.author | hn %></td>
+            <td>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+<div class='hcenter paginator'>
+    <ul class="pure-paginator">
+        <li><a class="pure-button prev" href="/post?page=<%= curPage - 1 %>">&#171;</a></li>
+        <% for (var i = 1; i <= totalPage; i++) { %>
+            <li><a class="pure-button <%if(curPage == i){%>pure-button-active<%}%>" href="/post?page=<%= i %>"><%= i %></a></li>
+        <% } %>
+        <li><a class="pure-button next" href="/post?page=<%= curPage + 1 %>">&#187;</a></li>
+    </ul>
+</div>
+
+<!-- 分页只需要显示当前页附近几页 -->

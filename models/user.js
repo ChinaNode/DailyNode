@@ -16,7 +16,7 @@ UserSchema.statics.findOneC = function (query) {
     }
 }
 
-UserSchema.statics.find = function () {
+UserSchema.statics.findC = function () {
     var that = this, args = arguments
     return function (cb) {
         args.push(cb)

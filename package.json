@@ -28,6 +28,7 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
+    "debug": "^1.0.4",
     "mocha": "^1.20.1"
   },
   "scripts": {
