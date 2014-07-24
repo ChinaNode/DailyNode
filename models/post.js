@@ -36,6 +36,22 @@ PostSchema.statics.countC = function () {
     }
 }
 
+PostSchema.statics.updateC = function () {
+    var that = this, args = Array.prototype.slice.call(arguments)
+    return function (cb) {
+        args.push(cb)
+        that.update.apply(that, args)
+    }
+}
+
+PostSchema.statics.findByIdC = function () {
+    var that = this, args = Array.prototype.slice.call(arguments)
+    return function (cb) {
+        args.push(cb)
+        that.findById.apply(that, args)
+    }
+}
+
 
 var Post = mongoose.model('Post', PostSchema)
 

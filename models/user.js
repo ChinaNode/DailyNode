@@ -17,7 +17,7 @@ UserSchema.statics.findOneC = function (query) {
 }
 
 UserSchema.statics.findC = function () {
-    var that = this, args = arguments
+    var that = this,  args = Array.prototype.slice.call(arguments)
     return function (cb) {
         args.push(cb)
         that.find.apply(that, args)
