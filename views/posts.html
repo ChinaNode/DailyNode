@@ -19,7 +19,7 @@
         <% var p = posts[i] %>
         <tr>
             <td><a href="/post/<%= p._id %>">#</a></td>
-            <td><a href='<%= p.link %>'><%= p.title %></a></td>
+            <td><a href='<%= p.link %>' target='_blank'><%= p.title %></a></td>
             <!-- <td><%- p.description %></td> -->
             <!-- <td><%- p.summary %></td> -->
             <td><%=: p.pubDate | formatDate %></td>

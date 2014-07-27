@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+var pluginLastMod = require('./lastMod')
 
 var PostSchema = mongoose.Schema({
     title: {type: String, unique: true},   // TODO post tile is unique, this may be a problem
@@ -8,11 +9,16 @@ var PostSchema = mongoose.Schema({
     pubDate: Date,
     link: String,
     author: String,
+    createdTime: {type: Date, default: Date.now},
     hidden: {type: Boolean, default: false}
 })
 
-// comments, favs, hidden
+PostSchema.plugin(pluginLastMod, {index: true})
 
+// comments, favs
+
+
+// TODO use a elegant thunk way 
 PostSchema.statics.findOneC = function (query) {
     var that = this
     return function (cb) {

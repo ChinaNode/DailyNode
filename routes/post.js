@@ -10,7 +10,8 @@ PostRouter.get('/', auth, function * () {
     var query = {hidden: false}
     var opts = {
         limit: num,
-        skip: (page-1)*num
+        skip: (page-1)*num,
+        sort: {createdTime: 0}
     }
     var posts = yield Post.findC(query, null, opts)
     var count = yield Post.countC(query)
@@ -27,7 +28,11 @@ PostRouter.get('/', auth, function * () {
 PostRouter.get('/:id', auth, function * () {
     var id = this.params.id
     var post = yield Post.findByIdC(id)
-    this.body = post
+    console.log(post)
+    yield this.render('post_detail', {
+        layout: 'BL',
+        post: post
+    })
 })
 
 PostRouter.get('/del/:id', auth, function * () {

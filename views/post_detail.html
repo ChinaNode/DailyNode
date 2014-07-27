@@ -1,0 +1,7 @@
+<h1><a href="<%= post.link %>" target='_blank'><%= post.title %></a></h1>
+<div>
+    <p>Created by <%=: post.author | hn %> at <%=: post.pubDate | formatDate %> <a href="/post/del/<%=post._id%>">Delete</a></p>
+    <%- post.summary %>
+    <hr style='border-color:red'>
+    <%- post.description %>
+</div>
