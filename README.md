@@ -4,6 +4,15 @@ Daily Node
 A Node.js news, blog, video, podcast hub.
 
 
+
+## 
+
+* Get the posts: parse rss, html
+* Content Edit: remove nosense article
+* Show it in a good design
+* User register, like, comment, share
+
+
 ## Reference
 
 * EchoJS

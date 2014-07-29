@@ -1,1 +1,8 @@
-<h3>Node.js news index page</h3>
+<h3>Daily Node</h3>
+
+<ul>
+    <% for(var i in posts){ %>
+    <% var p = posts[i] %>
+    <li><a href='<%= p.link %>' target='_blank'><%= p.title %></a></li>
+    <% } %>
+</ul>

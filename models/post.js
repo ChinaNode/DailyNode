@@ -10,7 +10,8 @@ var PostSchema = mongoose.Schema({
     link: String,
     author: String,
     createdTime: {type: Date, default: Date.now},
-    hidden: {type: Boolean, default: false}
+    hidden: {type: Boolean, default: false},
+    publish: {type: Boolean, default: false}
 })
 
 PostSchema.plugin(pluginLastMod, {index: true})
