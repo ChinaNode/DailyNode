@@ -18,6 +18,7 @@ UserRouter.post('/login', function * () {
     var params = this.request.body.fields
     var query = {name: params.account, pwd: params.password}
     var user = yield User.tfindOne(query)
+    var url
     if (user) {
         url = '/admin'
         this.session.user = user

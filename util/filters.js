@@ -2,7 +2,7 @@
 
 module.exports = {
     formatDate: function (item) {
-        var b0 = require('./util/helper').b0
+        var b0 = require('./helper').b0
         if (item) {
             var d = new Date(item)
             var date = d.getFullYear() + '-' + b0((d.getMonth() + 1)) + '-' + b0(d.getDate())
