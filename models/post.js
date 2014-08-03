@@ -12,6 +12,8 @@ var PostSchema = mongoose.Schema({
     link: String,
     author: String,
     createdTime: {type: Date, default: Date.now},
+    like: {type: Number, default: 0},
+    source: String,
     hidden: {type: Boolean, default: false},
     publish: {type: Boolean, default: false}
 })    // comments, favs

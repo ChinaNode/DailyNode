@@ -2,6 +2,7 @@
 var Router = require('koa-router')
 var UserRouter = new Router()
 var User = require('../models/user')
+var h = require('../util/helper')
 module.exports = UserRouter
 
 /**
@@ -16,7 +17,7 @@ UserRouter.get('/login', function * () {
 */
 UserRouter.post('/login', function * () {
     var params = this.request.body.fields
-    var query = {name: params.account, pwd: params.password}
+    var query = {name: params.account, pwd: h.md5(params.password)}
     var user = yield User.tfindOne(query)
     var url
     if (user) {

@@ -4,6 +4,9 @@ var async = require('async')
 var URL = 'http://blog.nodejs.org'
 var fs = require('fs')
 
+exports.getOnePage = getOnePage
+
+/*
 var DATA = [];
 (function get (url) {
     console.log("Getting " + url)
@@ -21,6 +24,7 @@ var DATA = [];
         }
     })
 })(URL)
+*/
 
 /*
 *   getOnePage blog
