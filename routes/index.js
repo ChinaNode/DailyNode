@@ -1,3 +1,4 @@
+'use strict'
 var mount = require('koa-mount')
 var Router = require('koa-router')
 var Post = require('../models/post')
@@ -16,7 +17,7 @@ IndexRouter.get('/', function * () {
         skip: 10,
         sort: {createdTime: 0}
     }
-    var posts = yield Post.findC(query, null, opts)
+    var posts = yield Post.tfind(query, null, opts)
     yield this.render('index', {posts: posts})
 })
 

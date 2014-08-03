@@ -1,3 +1,4 @@
+'use strict'
 var Router = require('koa-router')
 var AdminRouter = new Router()
 var auth = require('../util/auth').auth

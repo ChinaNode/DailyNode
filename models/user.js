@@ -1,4 +1,7 @@
+'use strict'
 var mongoose = require('mongoose')
+var pluginLastMod = require('./lastMod')
+var thunkify = require('./thunkify')
 
 var UserSchema = mongoose.Schema({
     name: {type: String, unique: true},
@@ -8,22 +11,11 @@ var UserSchema = mongoose.Schema({
     updatedTime: {type: Date, default: Date.now},
     group: {type: Number, default: 0}
 })
-
-UserSchema.statics.findOneC = function (query) {
-    var that = this
-    return function (cb) {
-        that.findOne(query, cb)
-    }
-}
-
-UserSchema.statics.findC = function () {
-    var that = this,  args = Array.prototype.slice.call(arguments)
-    return function (cb) {
-        args.push(cb)
-        that.find.apply(that, args)
-    }
-}
-
+UserSchema.plugin(pluginLastMod, {index: true})
 var User = mongoose.model('User', UserSchema)
+//
+thunkify(User)
 
 module.exports = User
+
+

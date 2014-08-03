@@ -1,22 +1,16 @@
+'use strict'
 var request = require('request')
 var FeedParser = require('feedParser')
 var iconv = require('iconv-lite')
 var cheerio = require('cheerio')
 
-
-exports.fetchRSS = fetchRSS
-
-
-function fetchRSS (url, callback) {
+exports.fetchRSS = function fetchRSS (url, callback) {
     var posts
-
+    var feedparser = new FeedParser()
     var req = request(url, {timeout: 10000, pool: false})
     req.setMaxListeners(50)
-    req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')
+    req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36')
     req.setHeader('accept', 'text/html,application/xhtml+xml')
-
-    var feedparser = new FeedParser()
-
     req.on('error', callback)
     req.on('response', function (res) {
         var stream = this
@@ -26,13 +20,13 @@ function fetchRSS (url, callback) {
         } 
         stream.pipe(feedparser)
     })
-
     feedparser.on('error', callback)
     feedparser.on('end', function (err) {
         if (err) {
-            return callback(err)
+            callback(err)
+        } else {
+            callback(null, posts)
         }
-        callback(null, posts)
     })
     feedparser.on('readable', function () {
         var post
@@ -40,10 +34,7 @@ function fetchRSS (url, callback) {
             posts.push(post)
         }
     })
-
-
 }
-
 
 
 function errStack (err) {

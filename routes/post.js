@@ -1,3 +1,4 @@
+'use strict'
 var Router = require('koa-router')
 var PostRouter = new Router()
 var auth = require('../util/auth').auth
@@ -13,8 +14,8 @@ PostRouter.get('/', auth, function * () {
         skip: (page-1)*num,
         sort: {createdTime: 0}
     }
-    var posts = yield Post.findC(query, null, opts)
-    var count = yield Post.countC(query)
+    var posts = yield Post.tfind(query, null, opts)
+    var count = yield Post.tcount(query)
     var totalPage = Math.ceil(count / num)
     yield this.render('posts', {
         layout: 'BL',
@@ -24,11 +25,9 @@ PostRouter.get('/', auth, function * () {
     })
 })
 
-
 PostRouter.get('/:id', auth, function * () {
     var id = this.params.id
-    var post = yield Post.findByIdC(id)
-    console.log(post)
+    var post = yield Post.tfindById(id)
     yield this.render('post_detail', {
         layout: 'BL',
         post: post
@@ -37,7 +36,7 @@ PostRouter.get('/:id', auth, function * () {
 
 PostRouter.get('/del/:id', auth, function * () {
     var id = this.params.id
-    yield Post.updateC({_id: id}, {$set: {hidden: true}})
+    yield Post.tupdate({_id: id}, {$set: {hidden: true}})
     this.redirect('/post')
 })
 

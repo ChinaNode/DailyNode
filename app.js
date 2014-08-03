@@ -1,3 +1,4 @@
+'use strict'
 var koa = require('koa')
 var logger = require('koa-logger')
 var serve = require('koa-static')
@@ -9,6 +10,7 @@ var path = require('path')
 var config = require('./configs/config.json')
 // var auth = require('koa-basic-auth')
 var koaBody = require('koa-better-body')
+var filters = require('./util/filters')
 
 //
 var app = koa()
@@ -31,22 +33,7 @@ ejsRender(app, {
     debug: true,
     cache: false,
     locals: {},
-    filters: {
-        formatDate: function (item) {
-            var b0 = require('./util/helper').b0
-            if (item) {
-                var d = new Date(item)
-                var date = d.getFullYear() + '-' + b0((d.getMonth() + 1)) + '-' + b0(d.getDate())
-                var time = b0(d.getHours()) + ':' + b0(d.getMinutes()) + ':' + b0(d.getSeconds())
-                return date + ' ' + time
-            } else {
-                return 'N/A'
-            }
-        },
-        hn: function (item) {
-            return item ? item : 'N/A'
-        }
-    }
+    filters: filters
 })
 // app.use(auth({name: 'pana', pass: 'wang'}))
 app.use(koaBody({
