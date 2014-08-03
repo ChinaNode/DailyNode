@@ -38,7 +38,8 @@ function crawlRSS (callback) {
                         date: p.date,
                         pubDate: p.pubDate,
                         link: p.link,
-                        author: p.author
+                        author: p.author,
+                        source: item.name
                     }
                     createPost(p, cbki)
                 }, cbk)
