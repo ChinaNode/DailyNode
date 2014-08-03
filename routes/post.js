@@ -12,7 +12,7 @@ PostRouter.get('/', auth, function * () {
     var opts = {
         limit: num,
         skip: (page-1)*num,
-        sort: {createdTime: 0}
+        sort: {createdTime: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
