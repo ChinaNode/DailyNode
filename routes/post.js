@@ -15,12 +15,14 @@ PostRouter.get('/', auth, function * () {
         sort: {createdTime: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
+    console.log(posts)
     var count = yield Post.tcount(query)
     var totalPage = Math.ceil(count / num)
     yield this.render('posts', {
         layout: 'BL',
         posts: posts,
         curPage: page,
+        total: count,
         totalPage: totalPage
     })
 })

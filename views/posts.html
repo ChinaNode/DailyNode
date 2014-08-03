@@ -1,4 +1,4 @@
-<h1>Post Lists</h1>
+<h1>Post Lists &nbsp; <%= total %></h1>
 
 
 <table class='pure-table pure-table-stripe pure-table-horizontal' style='width: 90%'>
@@ -6,9 +6,6 @@
         <tr>
             <th>#</th>
             <th>Title</th>
-<!--             <th>Description</th>
-            <th>Summary</th>
- -->
             <th>PubDate</th>
             <th>Author</th>
             <th>Action</th>
@@ -20,8 +17,6 @@
         <tr>
             <td><a href="/post/<%= p._id %>">#</a></td>
             <td><a href='<%= p.link %>' target='_blank'><%= p.title %></a></td>
-            <!-- <td><%- p.description %></td> -->
-            <!-- <td><%- p.summary %></td> -->
             <td><%=: p.pubDate | formatDate %></td>
             <td><%=: p.author | hn %></td>
             <td>
@@ -33,11 +28,25 @@
 </table>
 <div class='hcenter paginator'>
     <ul class="pure-paginator">
+        <% if (curPage > 1) { %>
         <li><a class="pure-button prev" href="/post?page=<%= curPage - 1 %>">&#171;</a></li>
-        <% for (var i = 1; i <= totalPage; i++) { %>
-            <li><a class="pure-button <%if(curPage == i){%>pure-button-active<%}%>" href="/post?page=<%= i %>"><%= i %></a></li>
         <% } %>
+        <% if (curPage - 2 > 0) { %>
+        <li><a class="pure-button" href="/post?page=<%= curPage - 2 %>"><%= curPage - 2 %></a></li>
+        <% } %>
+        <% if (curPage - 1 > 0) { %>
+        <li><a class="pure-button" href="/post?page=<%= curPage - 1 %>"><%= curPage - 1 %></a></li>
+        <% } %>
+        <li><a class="pure-button pure-button-active" href="/post?page=<%= curPage %>"><%= curPage %></a></li>
+        <% if (curPage + 1 < totalPage) { %>
+        <li><a class="pure-button prev" href="/post?page=<%= curPage + 1 %>"><%= curPage + 1 %></a></li>
+        <% } %>
+        <% if (curPage + 2 < totalPage) { %>
+        <li><a class="pure-button prev" href="/post?page=<%= curPage + 2 %>"><%= curPage + 2 %></a></li>
+        <% } %>
+        <% if (curPage < totalPage) { %>
         <li><a class="pure-button next" href="/post?page=<%= curPage + 1 %>">&#187;</a></li>
+        <% } %>
     </ul>
 </div>
 
