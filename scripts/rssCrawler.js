@@ -1,6 +1,6 @@
 'use strict'
 var request = require('request')
-var FeedParser = require('feedParser')
+var FeedParser = require('feedparser')
 var iconv = require('iconv-lite')
 var cheerio = require('cheerio')
 
