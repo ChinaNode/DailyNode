@@ -3,7 +3,9 @@ var request = require('request')
 var cheerio = require('cheerio')
 var fs = require('fs')
 
-exports.getOnePage = getOnePage
+exports.crawl = function (cbk) {
+    getOnePage(URL, cbk)
+}
 
 /*
 var DATA = [];
@@ -57,13 +59,14 @@ function extractBlogs (obj) {
             title: $this.find('.post-title a').text(),
             link: $this.find('.post-title a').attr('href'),
             pubDate: $this.find('.post-meta-infos .date-container').text(),
-            author: $this.find('.post-meta-infos .blog-author').text()
+            author: $this.find('.post-meta-infos .blog-author').text(),
+            source: 'StrongLoop'
         }
         $this.find('.post-title').remove()
         $this.find('.post-meta-infos').remove()
         $this.find('.addtoany_share_save_container').remove()
         $this.find('.post_delimiter').remove()
-        result.body = $this.html()  // here is not the complete blog
+        result.description = $this.html()  // here is not the complete blog
         ps.push(result)
     })
     return ps

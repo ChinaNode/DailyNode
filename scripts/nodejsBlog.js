@@ -4,7 +4,9 @@ var async = require('async')
 var URL = 'http://blog.nodejs.org'
 var fs = require('fs')
 
-exports.getOnePage = getOnePage
+exports.crawl = function (cbk) {
+    getOnePage(URL, cbk)
+}
 
 /*
 var DATA = [];
@@ -60,11 +62,12 @@ function extractPost (index, element) {
     var post = {
         title: $this.find('h1 a').text(),
         link: URL + $this.find('h1 a').attr('href'),
-        meta: $this.find('.meta').text()
+        pubDate: $this.find('.meta').text().slice(0, 32),
+        source: 'nodejs.org'
     }
     $this.find('h1').remove()
     $this.find('.meta').remove()
-    post.body = $this.html()
+    post.desription = $this.html()
     return post
 }
 

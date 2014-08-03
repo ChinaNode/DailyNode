@@ -46,7 +46,7 @@ app.use(koaBody({
 // load routes
 require('./models/db')  // connect to db
 require('./routes')(app)
-// require('./scripts/spider').crawl()  // set crawl tasks begin
+require('./scripts/spider').start()  // set crawl tasks begin
 
 app.listen(config.port)
 console.log('App listen on port ' + config.port)

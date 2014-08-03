@@ -2,63 +2,83 @@ var Post = require('../models/post')
 var fetchRSS = require('./rssCrawler').fetchRSS
 var RSS = require('../configs/rss.json').RSS
 var async = require('async')
-var debug = require('debug')('rssSpider')
 var db = require('../models/db')  // connect db
+var logger = require('../util/logger').infoLogger
 
+//
 function createPost (post, cbk) {
-
-    var p = new Post({
-        title: post.title,
-        description: post.description,
-        summary: post.summary,
-        date: post.date,
-        pubDate: post.pubDate,
-        link: post.link,
-        author: post.author
-    })
-
-    p.save(function (err, result) {
-        if(err)
-            debug(err)   //TODO if same tile post already exist here will be error
-
-        cbk()
+    Post.findOne({title: post.title}, function (err, data) {
+        if(err || data) {
+            cbk()
+        } else {
+            new Post(post).save(function (err, result) {
+                cbk()
+            })
+        }
     })
 }
 
-var intervalHandle
+// do the crawl job
+function crawlRSS (callback) {
+    var now = new Date()
+    logger.info('Start ' + now)
+    async.eachSeries(RSS, function (item, cbk) {
+        logger.info('Start fetch ' + item.name)
+        fetchRSS(item.url, function (err, posts) {
+            logger.info(item.name + ' fetch ended!')
+            if (err) {
+                logger.info(err)
+                cbk()
+            } else {
+                async.eachSeries(posts, function (p, cbki) {
+                    var post = {
+                        title: p.title,
+                        description: p.description,
+                        summary: p.summary,
+                        date: p.date,
+                        pubDate: p.pubDate,
+                        link: p.link,
+                        author: p.author
+                    }
+                    createPost(p, cbki)
+                }, cbk)
+            }
+        })
+    }, function (err, result) {
+        logger.info(now + ' fetch ended')
+        callback()
+    })
+}
+
+function crawlNodejs (callback) {
+    var crawl = require('./nodejsBlog').crawl
+    crawl(function (err, result) {
+        async.eachSeries(result.posts, createPost, function () {
+            callback()
+        })
+    })
+}
+
+function crawlSL (callback) {
+    var crawl = require('./strongLoopBlog.js').crawl
+    crawl(function (err, result) {
+        async.eachSeries(result.posts, createPost, function () {
+            callback()
+        })
+    })
+}
+
+function crawl () {
+    async.series([crawlRSS, crawlNodejs, crawlSL], function () {
+        logger.info('End once \n\n')
+    })
+}
 
 // start RSS crawl
-exports.crawl = function (interval) {
+exports.start = function (interval) {
     interval = interval || 30*60000
-
-    // do the crawl job
-    function doc () {
-        var now = new Date()
-        debug('Start ' + now)
-        async.eachSeries(RSS, function (item, cbk) {
-            debug('Start fetch ' + item.name)
-            fetchRSS(item.url, function (err, posts) {
-                debug(item.name + ' fetch ended!')
-                if (err) {
-                    debug(err)
-                    cbk()
-                } else {
-                    async.each(posts, createPost, cbk)
-                }
-            })
-        }, function (err, result) {
-            debug(now + ' fetch ended')
-        })
-    }
-
     // setInterval
-    intervalHandle = setInterval(doc, interval)
-    
+    intervalHandle = setInterval(crawl, interval)
     // start instantly
-    doc()
-}
-
-// stop crawl job
-exports.stopCrawl = function () {
-    clearInterval(intervalHandle)
+    crawl()
 }
