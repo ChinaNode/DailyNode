@@ -35,7 +35,7 @@ PostRouter.get('/:id', auth, function * () {
     })
 })
 
-PostRouter.get('/del/:id', auth, function * () {
+PostRouter.del('/del/:id', auth, function * () {
     var id = this.params.id
     yield Post.tupdate({_id: id}, {$set: {hidden: true}})
     this.redirect('/post')

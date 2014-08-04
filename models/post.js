@@ -15,7 +15,8 @@ var PostSchema = mongoose.Schema({
     like: {type: Number, default: 0},
     source: String,
     hidden: {type: Boolean, default: false},
-    publish: {type: Boolean, default: false}
+    publish: {type: Boolean, default: false},
+    recommend: {type: Boolean, default: false}
 })    // comments, favs
 PostSchema.plugin(pluginLastMod, {index: true})
 

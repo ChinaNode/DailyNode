@@ -11,6 +11,7 @@ var config = require('./configs/config.json')
 // var auth = require('koa-basic-auth')
 var koaBody = require('koa-better-body')
 var filters = require('./util/filters')
+var methodOverride = require('./util/overRide')
 
 //
 var app = koa()
@@ -42,6 +43,7 @@ app.use(koaBody({
       uploadDir: __dirname + '/uploads'
     }
 }))
+app.use(methodOverride())
 
 // load routes
 require('./models/db')  // connect to db
