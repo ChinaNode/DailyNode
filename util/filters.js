@@ -1,8 +1,17 @@
 'use strict'
+var b0 = require('./helper').b0
 
 module.exports = {
     formatDate: function (item) {
-        var b0 = require('./helper').b0
+        if (item) {
+            var d = new Date(item)
+            var date = d.getFullYear() + '-' + b0((d.getMonth() + 1)) + '-' + b0(d.getDate())
+            return date
+        } else {
+            return 'N/A'
+        }
+    },
+    formatDateTime: function (item) {
         if (item) {
             var d = new Date(item)
             var date = d.getFullYear() + '-' + b0((d.getMonth() + 1)) + '-' + b0(d.getDate())
@@ -12,6 +21,7 @@ module.exports = {
             return 'N/A'
         }
     },
+
     hn: function (item) {
         return item ? item : 'N/A'
     }

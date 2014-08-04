@@ -14,8 +14,8 @@ IndexRouter.get('/', function * () {
     var query = {hidden: false}
     var opts = {
         limit: 25,
-        skip: 10,
-        sort: {createdTime: -1}
+        skip: 0,
+        sort: {pubDate: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
     yield this.render('index', {posts: posts})

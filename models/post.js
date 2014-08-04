@@ -19,16 +19,6 @@ var PostSchema = mongoose.Schema({
 })    // comments, favs
 PostSchema.plugin(pluginLastMod, {index: true})
 
-// TODO use a elegant thunk way 
-/*
-PostSchema.statics.findC = function () {
-    var that = this, args = Array.prototype.slice.call(arguments)
-    return function (cb) {
-        args.push(cb)
-        that.find.apply(that, args)
-    }
-}
-*/
 var Post = mongoose.model('Post', PostSchema)
 thunkify(Post)
 

@@ -5,9 +5,10 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Title</th>
+            <th style='width: 500px'>Title</th>
             <th>PubDate</th>
             <th>Author</th>
+            <th>Source</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -19,6 +20,7 @@
             <td><a href='<%= p.link %>' target='_blank'><%= p.title %></a></td>
             <td><%=: p.pubDate | formatDate %></td>
             <td><%=: p.author | hn %></td>
+            <td><%=: p.source | hn %></td>
             <td>
                 <a href="/post/del/<%=p._id%>">Delete</a>
             </td>

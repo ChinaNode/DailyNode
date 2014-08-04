@@ -12,10 +12,9 @@ PostRouter.get('/', auth, function * () {
     var opts = {
         limit: num,
         skip: (page-1)*num,
-        sort: {createdTime: -1}
+        sort: {pubDate: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
-    console.log(posts)
     var count = yield Post.tcount(query)
     var totalPage = Math.ceil(count / num)
     yield this.render('posts', {

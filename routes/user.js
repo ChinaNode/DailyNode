@@ -36,3 +36,12 @@ UserRouter.delete('/logout', function * () {
     this.session.user = null
     this.redirect('/user/login')
 })
+
+/*
+*   Get logout
+*/
+UserRouter.get('/logout', function * () {
+    this.session.user = null
+    this.redirect('/user/login')
+})
+
