@@ -1,27 +1,25 @@
-body {
-    height: 100%;
-    background-color: #5eb95e;
-    color: white;
+body{
+    border-top: #5cb75c solid 5px;
 }
 
-h3 {
-    margin-left: 23px;
+header {
+    height: 100px;
 }
 
-ul {
-    list-style-type: disc;
-    font-size: 16px;
-    line-height: 30px;
-}
-
-a {
-    color: white;
+footer {
+    height: 100px;
+    padding: 50px 0px;
+    text-align: center;
 }
 
 a:hover {
-    color: white;
-};
+    text-decoration: none;
+}
 
-a:visited {
-    color: white;
-};
+header h1{
+    display: inline-block;
+}
+
+.sitename {
+    position:relative;top:5px;
+}

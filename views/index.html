@@ -1,8 +1,29 @@
-<h3>Daily Node</h3>
 
-<ul>
-    <% for(var i in posts){ %>
-    <% var p = posts[i] %>
-    <li><a href='<%= p.link %>' target='_blank'><%= p.title %></a></li>
-    <% } %>
-</ul>
+<!-- Offers List - START -->
+
+<% for (var i in posts) { %>
+<% var p = posts[i] %>
+<div class="row">
+    <div class="listing listing-success">
+        <div class="shape">
+            <div class="shape-text">News</div>
+        </div>
+        <div class="listing-content">
+            <h3 class="lead">
+                <a href='<%= p.link %>' target='_blank'><%= p.title %></a>
+            </h3>
+            <p>
+                <% if (p.pubDate) { %>
+                    Published at <%=: p.pubDate | formatDate  %>
+                <% } else { %>
+                <% }%>
+                <% if (p.author) { %>
+                    by <%= p.author %>
+                <% } %>
+            </p>
+        </div>
+    </div>
+</div>
+<% } %>
+
+

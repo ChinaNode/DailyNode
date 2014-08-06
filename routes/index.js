@@ -13,7 +13,7 @@ var PostRouter = require('./post')
 IndexRouter.get('/', function * () {
     var query = {hidden: false}
     var opts = {
-        limit: 25,
+        limit: 10,
         skip: 0,
         sort: {pubDate: -1}
     }
