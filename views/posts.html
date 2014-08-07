@@ -22,7 +22,10 @@
             <td><%=: p.author | hn %></td>
             <td><%=: p.source | hn %></td>
             <td>
-                <a href="/post/del/<%=p._id%>?_method=DELETE">Delete</a>
+                <a href="/post/del/<%=p._id%>?_method=DELETE"><i class="fa fa-times"></i></a>
+                <% if (!p.recommend) { %>
+                <a href="/post/recommend/<%=p._id%>?_method=PUT"><i class="fa fa-thumbs-o-up"></i></a>
+                <% } %>
             </td>
         </tr>
         <% } %>

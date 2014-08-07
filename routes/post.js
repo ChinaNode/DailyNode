@@ -41,6 +41,13 @@ PostRouter.del('/del/:id', auth, function * () {
     this.redirect('/post')
 })
 
+PostRouter.put('/recommend/:id', auth, function * () {
+    var id = this.params.id
+    yield Post.tupdate({_id: id}, {$set: {recommend: true}})
+    this.redirect('/post')
+})
+
+
 PostRouter.put('/:id', auth, function * () {
     
 })
