@@ -19,30 +19,49 @@ module.exports = function (app) {
 
 // index page
 IndexRouter.get('/', function * () {
+    var page = parseInt(this.query.page || '1')
+    var num = parseInt(this.query.num || '10')
     var query = {recommend: true, hidden: false}
+    var skip = (page - 1) * num
     if(this.query.keyword)
         query.title = new RegExp(this.query.keyword, 'i')
     var opts = {
-        limit: 10,
-        skip: 0,
+        limit: num,
+        skip: skip,
         sort: {pubDate: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
-    yield this.render('index', {posts: posts})
+    var count = yield Post.tcount(query)
+    yield this.render('index', {
+        posts: posts,
+        totalCount: count,
+        curPage: page,
+        totalPage: Math.ceil(count / num)
+    })
 })
 
 
 IndexRouter.get('/all', function * () {
+    var page = parseInt(this.query.page || '1')
+    var num = parseInt(this.query.num || '10')
+    var query = {recommend: true, hidden: false}
+    var skip = (page - 1) * num
     var query = {hidden: false}
     if(this.query.keyword)
         query.title = new RegExp(this.query.keyword, 'i')
     var opts = {
-        limit: 10,
-        skip: 0,
+        limit: num,
+        skip: skip,
         sort: {pubDate: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
-    yield this.render('index', {posts: posts})
+    var count = yield Post.tcount(query)
+    yield this.render('index', {
+        posts: posts,
+        totalCount: count,
+        curPage: page,
+        totalPage: Math.ceil(count / num)
+    })
 })
 
 IndexRouter.get('/about', function * () {
