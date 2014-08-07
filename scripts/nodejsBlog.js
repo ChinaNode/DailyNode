@@ -63,7 +63,8 @@ function extractPost (index, element) {
         title: $this.find('h1 a').text(),
         link: URL + $this.find('h1 a').attr('href'),
         pubDate: $this.find('.meta').text().slice(0, 32),
-        source: 'nodejs.org'
+        source: 'nodejs.org',
+        recommend: true
     }
     $this.find('h1').remove()
     $this.find('.meta').remove()
