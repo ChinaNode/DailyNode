@@ -1,6 +1,5 @@
 <h1>Post Lists &nbsp; <%= total %></h1>
 
-
 <table class='pure-table pure-table-stripe pure-table-horizontal' style='width: 90%'>
     <thead>
         <tr>
@@ -22,15 +21,16 @@
             <td><%=: p.author | hn %></td>
             <td><%=: p.source | hn %></td>
             <td>
-                <a href="/post/del/<%=p._id%>?_method=DELETE"><i class="fa fa-times"></i></a>
+                <a data-id='<%=p._id%>' class='delete'><i class="fa fa-times"></i></a>
                 <% if (!p.recommend) { %>
-                <a href="/post/recommend/<%=p._id%>?_method=PUT"><i class="fa fa-thumbs-o-up"></i></a>
+                <a data-id='<%=p._id%>' class='recommend'><i class="fa fa-thumbs-o-up"></i></a>
                 <% } %>
             </td>
         </tr>
         <% } %>
     </tbody>
 </table>
+
 <div class='hcenter paginator'>
     <ul class="pure-paginator">
         <% if (curPage > 1) { %>
@@ -43,10 +43,10 @@
         <li><a class="pure-button" href="/post?page=<%= curPage - 1 %>"><%= curPage - 1 %></a></li>
         <% } %>
         <li><a class="pure-button pure-button-active" href="/post?page=<%= curPage %>"><%= curPage %></a></li>
-        <% if (curPage + 1 < totalPage) { %>
+        <% if (curPage + 1 <= totalPage) { %>
         <li><a class="pure-button prev" href="/post?page=<%= curPage + 1 %>"><%= curPage + 1 %></a></li>
         <% } %>
-        <% if (curPage + 2 < totalPage) { %>
+        <% if (curPage + 2 <= totalPage) { %>
         <li><a class="pure-button prev" href="/post?page=<%= curPage + 2 %>"><%= curPage + 2 %></a></li>
         <% } %>
         <% if (curPage < totalPage) { %>
@@ -54,5 +54,5 @@
         <% } %>
     </ul>
 </div>
-
-<!-- 分页只需要显示当前页附近几页 -->
+<script src="/lib/jquery-2.1.1.min.js"></script>
+<script src="/js/dashboard.js"></script>

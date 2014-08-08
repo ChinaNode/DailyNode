@@ -38,13 +38,13 @@ PostRouter.get('/:id', auth, function * () {
 PostRouter.del('/del/:id', auth, function * () {
     var id = this.params.id
     yield Post.tupdate({_id: id}, {$set: {hidden: true}})
-    this.redirect('/post')
+    this.body = {code: 0, message: 'Success!'}
 })
 
 PostRouter.put('/recommend/:id', auth, function * () {
     var id = this.params.id
     yield Post.tupdate({_id: id}, {$set: {recommend: true}})
-    this.redirect('/post')
+    this.body = {code: 0, message: 'Success!'}
 })
 
 
