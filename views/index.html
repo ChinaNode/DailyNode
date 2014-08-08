@@ -38,13 +38,13 @@
     <li><a href="?page=<%= curPage - 1 %>"><%= curPage - 1 %></a></li>
     <% } %>
     <li class='active'><a href="?page=<%= curPage %>"><%= curPage %></a></li>
-    <% if (curPage + 1 < totalPage) { %>
+    <% if (curPage + 1 <= totalPage) { %>
     <li><a href="?page=<%= curPage + 1%>"><%= curPage +1 %></a></li>
     <% } %>
-    <% if (curPage + 2 < totalPage) { %>
+    <% if (curPage + 2 <= totalPage) { %>
     <li><a href="?page=<%= curPage + 2 %>"><%= curPage + 2 %></a></li>
     <% } %>
-    <% if (curPage + 2 < totalPage) { %>
+    <% if (curPage + 1 <= totalPage) { %>
     <li><a href="?page=<%= curPage + 1%>">&raquo;</a></li>
     <% } %>
 </div>
