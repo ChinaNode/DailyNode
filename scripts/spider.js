@@ -52,25 +52,33 @@ function crawlRSS (callback) {
 }
 
 function crawlNodejs (callback) {
+    logger.info('Crawl official blog')
     var crawl = require('./nodejsBlog').crawl
     crawl(function (err, result) {
-        async.eachSeries(result.posts, createPost, function () {
-            callback()
-        })
+        async.eachSeries(result.posts, createPost, callback)
     })
 }
 
 function crawlSL (callback) {
+    logger.info('Crawl StrongLoop')
     var crawl = require('./strongLoopBlog.js').crawl
     crawl(function (err, result) {
-        async.eachSeries(result.posts, createPost, function () {
-            callback()
-        })
+        async.eachSeries(result.posts, createPost, callback)
+    })
+}
+
+function crawlNodeWeek (callback) {
+    logger.info('Crawl NodeWeekly')
+    var crawl = require('./nodeWeekly').crawl
+    crawl(function (err, posts) {
+        if (!err) {
+            async.eachSeries(posts, createPost, callback)
+        }
     })
 }
 
 function crawl () {
-    async.series([crawlRSS, crawlNodejs, crawlSL], function () {
+    async.series([crawlRSS, crawlNodejs, crawlSL, crawlNodeWeek], function () {
         logger.info('End once \n\n')
     })
 }
