@@ -1,0 +1,26 @@
+<h1 style='display:inline-block'>Category </h1>
+<a href="/category/new" class='pure-button pure-button-primary' style='margin-left:20px;color:white;'>Add</a>
+
+<table class='pure-table pure-table-stripe pure-table-horizontal' style='width: 90%'>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>CreatedTime</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (var i in cates) { %>
+        <% var p = cates[i] %>
+        <tr>
+            <td>#</td>
+            <td><%= p.name %></td>
+            <td><%=: p.createdTime | formatDate %></td>
+            <td>
+                <a href='/category/<%= p._id %>?_method=DELETE'><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>

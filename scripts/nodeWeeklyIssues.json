@@ -1,1 +1,237 @@
-[]
+[
+	{
+		"title": "Issue #47",
+		"link": "http://nodeweekly.com/issues/47",
+		"week": "August  7, 2014"
+	},
+	{
+		"title": "Issue #46",
+		"link": "http://nodeweekly.com/issues/46",
+		"week": "July 31, 2014"
+	},
+	{
+		"title": "Issue #45",
+		"link": "http://nodeweekly.com/issues/45",
+		"week": "July 24, 2014"
+	},
+	{
+		"title": "Issue #44",
+		"link": "http://nodeweekly.com/issues/44",
+		"week": "July 17, 2014"
+	},
+	{
+		"title": "Issue #43",
+		"link": "http://nodeweekly.com/issues/43",
+		"week": "July 10, 2014"
+	},
+	{
+		"title": "Issue #42",
+		"link": "http://nodeweekly.com/issues/42",
+		"week": "July 3, 2014"
+	},
+	{
+		"title": "Issue #41",
+		"link": "http://nodeweekly.com/issues/41",
+		"week": "June 26, 2014"
+	},
+	{
+		"title": "Issue #40",
+		"link": "http://nodeweekly.com/issues/40",
+		"week": "June 19, 2014"
+	},
+	{
+		"title": "Issue #39",
+		"link": "http://nodeweekly.com/issues/39",
+		"week": "June 12, 2014"
+	},
+	{
+		"title": "Issue #38",
+		"link": "http://nodeweekly.com/issues/38",
+		"week": "June 5, 2014"
+	},
+	{
+		"title": "Issue #37",
+		"link": "http://nodeweekly.com/issues/37",
+		"week": "May 29, 2014"
+	},
+	{
+		"title": "Issue #36",
+		"link": "http://nodeweekly.com/issues/36",
+		"week": "May 22, 2014"
+	},
+	{
+		"title": "Issue #35",
+		"link": "http://nodeweekly.com/issues/35",
+		"week": "May 15, 2014"
+	},
+	{
+		"title": "Issue #34",
+		"link": "http://nodeweekly.com/issues/34",
+		"week": "May 8, 2014"
+	},
+	{
+		"title": "Issue #33",
+		"link": "http://nodeweekly.com/issues/33",
+		"week": "May  1, 2014"
+	},
+	{
+		"title": "Issue #32",
+		"link": "http://nodeweekly.com/issues/32",
+		"week": "April 24, 2014"
+	},
+	{
+		"title": "Issue #31",
+		"link": "http://nodeweekly.com/issues/31",
+		"week": "April 17, 2014"
+	},
+	{
+		"title": "Issue #30",
+		"link": "http://nodeweekly.com/issues/30",
+		"week": "April 10, 2014"
+	},
+	{
+		"title": "Issue #29",
+		"link": "http://nodeweekly.com/issues/29",
+		"week": "April  3, 2014"
+	},
+	{
+		"title": "Issue #28",
+		"link": "http://nodeweekly.com/issues/28",
+		"week": "March 27, 2014"
+	},
+	{
+		"title": "Issue #27",
+		"link": "http://nodeweekly.com/issues/27",
+		"week": "March 20, 2014"
+	},
+	{
+		"title": "Issue #26",
+		"link": "http://nodeweekly.com/issues/26",
+		"week": "March 14, 2014"
+	},
+	{
+		"title": "Issue #25",
+		"link": "http://nodeweekly.com/issues/25",
+		"week": "March  6, 2014"
+	},
+	{
+		"title": "Issue #24",
+		"link": "http://nodeweekly.com/issues/24",
+		"week": "February 27, 2014"
+	},
+	{
+		"title": "Issue #23",
+		"link": "http://nodeweekly.com/issues/23",
+		"week": "February 20, 2014"
+	},
+	{
+		"title": "Issue #22",
+		"link": "http://nodeweekly.com/issues/22",
+		"week": "February 13, 2014"
+	},
+	{
+		"title": "Issue #21",
+		"link": "http://nodeweekly.com/issues/21",
+		"week": "February  6, 2014"
+	},
+	{
+		"title": "Issue #20",
+		"link": "http://nodeweekly.com/issues/20",
+		"week": "January 30, 2014"
+	},
+	{
+		"title": "Issue #19",
+		"link": "http://nodeweekly.com/issues/19",
+		"week": "January 23, 2014"
+	},
+	{
+		"title": "Issue #18",
+		"link": "http://nodeweekly.com/issues/18",
+		"week": "January 16, 2014"
+	},
+	{
+		"title": "Issue #17",
+		"link": "http://nodeweekly.com/issues/17",
+		"week": "January  9, 2014"
+	},
+	{
+		"title": "Issue #16",
+		"link": "http://nodeweekly.com/issues/16",
+		"week": "January  2, 2014"
+	},
+	{
+		"title": "Issue #15",
+		"link": "http://nodeweekly.com/issues/15",
+		"week": "December 19, 2013"
+	},
+	{
+		"title": "Issue #14",
+		"link": "http://nodeweekly.com/issues/14",
+		"week": "December 12, 2013"
+	},
+	{
+		"title": "Issue #13",
+		"link": "http://nodeweekly.com/issues/13",
+		"week": "December 5, 2013"
+	},
+	{
+		"title": "Issue #12",
+		"link": "http://nodeweekly.com/issues/12",
+		"week": "November 28, 2013"
+	},
+	{
+		"title": "Issue #11",
+		"link": "http://nodeweekly.com/issues/11",
+		"week": "November 21, 2013"
+	},
+	{
+		"title": "Issue #10",
+		"link": "http://nodeweekly.com/issues/10",
+		"week": "November  7, 2013"
+	},
+	{
+		"title": "Issue #9",
+		"link": "http://nodeweekly.com/issues/9",
+		"week": "October 31, 2013"
+	},
+	{
+		"title": "Issue #8",
+		"link": "http://nodeweekly.com/issues/8",
+		"week": "October 24, 2013"
+	},
+	{
+		"title": "Issue #7",
+		"link": "http://nodeweekly.com/issues/7",
+		"week": "October 17, 2013"
+	},
+	{
+		"title": "Issue #6",
+		"link": "http://nodeweekly.com/issues/6",
+		"week": "October 10, 2013"
+	},
+	{
+		"title": "Issue #5",
+		"link": "http://nodeweekly.com/issues/5",
+		"week": "October 3, 2013"
+	},
+	{
+		"title": "Issue #4",
+		"link": "http://nodeweekly.com/issues/4",
+		"week": "September 19, 2013"
+	},
+	{
+		"title": "Issue #3",
+		"link": "http://nodeweekly.com/issues/3",
+		"week": "September 12, 2013"
+	},
+	{
+		"title": "Issue #2",
+		"link": "http://nodeweekly.com/issues/2",
+		"week": "September  5, 2013"
+	},
+	{
+		"title": "Issue #1",
+		"link": "http://nodeweekly.com/issues/1",
+		"week": "August 29, 2013"
+	}
+]

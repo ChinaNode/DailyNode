@@ -26,6 +26,28 @@ PostRouter.get('/', auth, function * () {
     })
 })
 
+PostRouter.get('/recommend', auth, function * () {
+    // get page params
+    var page = parseInt(this.query.page || '1')
+    var num = parseInt(this.query.num || '10')
+    var query = {hidden: false, recommend: true}
+    var opts = {
+        limit: num,
+        skip: (page-1)*num,
+        sort: {pubDate: -1}
+    }
+    var posts = yield Post.tfind(query, null, opts)
+    var count = yield Post.tcount(query)
+    var totalPage = Math.ceil(count / num)
+    yield this.render('posts', {
+        layout: 'BL',
+        posts: posts,
+        curPage: page,
+        total: count,
+        totalPage: totalPage
+    })
+})
+
 PostRouter.get('/:id', auth, function * () {
     var id = this.params.id
     var post = yield Post.tfindById(id)

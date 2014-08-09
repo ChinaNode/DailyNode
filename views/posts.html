@@ -1,4 +1,4 @@
-<h1>Post Lists &nbsp; <%= total %></h1>
+<h1>Posts &nbsp; <%= total %></h1>
 
 <table class='pure-table pure-table-stripe pure-table-horizontal' style='width: 90%'>
     <thead>
@@ -34,23 +34,23 @@
 <div class='hcenter paginator'>
     <ul class="pure-paginator">
         <% if (curPage > 1) { %>
-        <li><a class="pure-button prev" href="/post?page=<%= curPage - 1 %>">&#171;</a></li>
+        <li><a class="pure-button prev" href="?page=<%= curPage - 1 %>">&#171;</a></li>
         <% } %>
         <% if (curPage - 2 > 0) { %>
-        <li><a class="pure-button" href="/post?page=<%= curPage - 2 %>"><%= curPage - 2 %></a></li>
+        <li><a class="pure-button" href="?page=<%= curPage - 2 %>"><%= curPage - 2 %></a></li>
         <% } %>
         <% if (curPage - 1 > 0) { %>
-        <li><a class="pure-button" href="/post?page=<%= curPage - 1 %>"><%= curPage - 1 %></a></li>
+        <li><a class="pure-button" href="?page=<%= curPage - 1 %>"><%= curPage - 1 %></a></li>
         <% } %>
-        <li><a class="pure-button pure-button-active" href="/post?page=<%= curPage %>"><%= curPage %></a></li>
+        <li><a class="pure-button pure-button-active" href="?page=<%= curPage %>"><%= curPage %></a></li>
         <% if (curPage + 1 <= totalPage) { %>
-        <li><a class="pure-button prev" href="/post?page=<%= curPage + 1 %>"><%= curPage + 1 %></a></li>
+        <li><a class="pure-button prev" href="?page=<%= curPage + 1 %>"><%= curPage + 1 %></a></li>
         <% } %>
         <% if (curPage + 2 <= totalPage) { %>
-        <li><a class="pure-button prev" href="/post?page=<%= curPage + 2 %>"><%= curPage + 2 %></a></li>
+        <li><a class="pure-button prev" href="?page=<%= curPage + 2 %>"><%= curPage + 2 %></a></li>
         <% } %>
         <% if (curPage < totalPage) { %>
-        <li><a class="pure-button next" href="/post?page=<%= curPage + 1 %>">&#187;</a></li>
+        <li><a class="pure-button next" href="?page=<%= curPage + 1 %>">&#187;</a></li>
         <% } %>
     </ul>
 </div>

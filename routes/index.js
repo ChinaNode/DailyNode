@@ -8,6 +8,7 @@ var IndexRouter = new Router()
 var UserRouter = require('./user')
 var AdminRouter = require('./admin')
 var PostRouter = require('./post')
+var CategoryRouter = require('./category')
 
 // 
 module.exports = function (app) {
@@ -15,6 +16,7 @@ module.exports = function (app) {
     app.use(mount('/user', UserRouter.middleware()))
     app.use(mount('/admin', AdminRouter.middleware()))
     app.use(mount('/post', PostRouter.middleware()))
+    app.use(mount('/category', CategoryRouter.middleware()))
 }
 
 // index page
