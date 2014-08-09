@@ -14,6 +14,7 @@ var PostSchema = mongoose.Schema({
     createdTime: {type: Date, default: Date.now},
     like: {type: Number, default: 0},
     source: String,
+    category: String,
     hidden: {type: Boolean, default: false},
     publish: {type: Boolean, default: false},
     recommend: {type: Boolean, default: false}

@@ -24,5 +24,27 @@ module.exports = {
 
     hn: function (item) {
         return item ? item : 'N/A'
+    },
+
+    cateClass: function (item) {
+        item = item || ''
+        var className
+        var mapper = {
+            'Code': 'listing-info',
+            'News': 'listing-primary',
+            'NPM': 'listing-warning',
+            'Star': 'listing-danger'
+        }
+        className = mapper[item] || 'listing-success'
+        return className
     }
 }
+
+/*
+    listing-danger
+    listing-success
+    listing-default
+    listing-primary
+    listing-info
+    listing-warning
+*/

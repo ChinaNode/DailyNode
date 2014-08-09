@@ -4,9 +4,9 @@
 <% for (var i in posts) { %>
 <% var p = posts[i] %>
 <div class="row">
-    <div class="listing listing-success">
+    <div class="listing <%=: p.category | cateClass %>">
         <div class="shape">
-            <div class="shape-text"></div>
+            <div class="shape-text"><%= p.category || '' %></div>
         </div>
         <div class="listing-content">
             <h3 class="lead">

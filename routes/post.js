@@ -3,6 +3,7 @@ var Router = require('koa-router')
 var PostRouter = new Router()
 var auth = require('../util/auth').auth
 var Post = require('../models/post')
+var Category = require('../models/category')
 
 PostRouter.get('/', auth, function * () {
     // get page params
@@ -38,13 +39,15 @@ PostRouter.get('/recommend', auth, function * () {
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
+    var cates = yield Category.tfind()
     var totalPage = Math.ceil(count / num)
-    yield this.render('posts', {
+    yield this.render('recommend', {
         layout: 'BL',
         posts: posts,
         curPage: page,
         total: count,
-        totalPage: totalPage
+        totalPage: totalPage,
+        cates: cates
     })
 })
 
@@ -66,6 +69,14 @@ PostRouter.del('/del/:id', auth, function * () {
 PostRouter.put('/recommend/:id', auth, function * () {
     var id = this.params.id
     yield Post.tupdate({_id: id}, {$set: {recommend: true}})
+    this.body = {code: 0, message: 'Success!'}
+})
+
+PostRouter.put('/setcate/:id', auth, function * () {
+    var id = this.params.id
+    var params = this.request.body.fields
+    var cate = params.category
+    yield Post.tupdate({_id: id}, {$set: {category: cate}})
     this.body = {code: 0, message: 'Success!'}
 })
 
