@@ -1,12 +1,20 @@
 {
     "RSS": [
         {
+            "name": "NPM",
+            "url": "http://blog.npmjs.org/rss"
+        },
+        {
             "name": "Nodejitsu",
             "url": "http://blog.nodejitsu.com/rss/"
         },
         {
             "name": "EchoJS",
             "url": "http://www.echojs.com/rss"
+        },
+        {
+            "name": "Joyent Node video",
+            "url": "https://www.joyent.com/developers/node/video-feed"
         }
     ]
 }
