@@ -47,9 +47,4 @@ PostRouter.put('/recommend/:id', auth, function * () {
     this.body = {code: 0, message: 'Success!'}
 })
 
-
-PostRouter.put('/:id', auth, function * () {
-    
-})
-
 module.exports = PostRouter
