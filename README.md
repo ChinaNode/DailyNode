@@ -6,8 +6,9 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others. Is 
 ## RoadMap
 
 * Enable user like
-* Rss
+* RSS
 * Share to twitter, facebook, weibo
+* Comment
 
 ## Reference
 
@@ -16,6 +17,11 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others. Is 
 * [DailyJs](http://dailyjs.com/)
 * [planetnodejs](http://www.planetnodejs.com/)
 
+## Powerd by
 
+* Node 0.11.13
+* Koa.js
+* cheerio
+* feedParser
 
 
