@@ -21,6 +21,8 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 
 * Node 0.11.13
 * Koa.js
+* MongoDB
+* mongoose
 * cheerio
 * feedParser
 
