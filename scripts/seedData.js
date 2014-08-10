@@ -20,7 +20,7 @@ function officialSave (callback) {
             title: item.title,
             link: item.link,
             description: item.body,
-            source: 'nodejs.org',
+            source: 'Nodejs.org',
             pubDate: new Date(item.meta.slice(0, 32))
         }).save(function (err){
             cbk()

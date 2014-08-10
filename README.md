@@ -1,7 +1,7 @@
 Daily Node
 ======
 
-Daily Node is a aggregator of Node.js news, blog, video, podcast and others. Is powered by Koajs add feedParser.
+Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 
 ## RoadMap
 

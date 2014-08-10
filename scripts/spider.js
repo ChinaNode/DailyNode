@@ -41,7 +41,7 @@ function crawlRSS (callback) {
                         author: p.author,
                         source: item.name
                     }
-                    createPost(p, cbki)
+                    createPost(post, cbki)
                 }, cbk)
             }
         })

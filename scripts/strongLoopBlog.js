@@ -59,7 +59,7 @@ function extractBlogs (obj) {
             title: $this.find('.post-title a').text(),
             link: $this.find('.post-title a').attr('href'),
             pubDate: $this.find('.post-meta-infos .date-container').text(),
-            author: $this.find('.post-meta-infos .blog-author').text(),
+            author: $this.find('.post-meta-infos .blog-author').text().replace('by', ''),
             source: 'StrongLoop'
         }
         $this.find('.post-title').remove()

@@ -35,3 +35,15 @@ http://code.tutsplus.com/articles/resources-to-get-you-up-to-speed-in-nodejs--cm
 http://architects.dzone.com/articles/40-resources-nodejs-developer
 http://www.smashingmagazine.com/2011/09/16/useful-node-js-tools-tutorials-and-resources/
 
+
+
+
+## first thoughts
+## 开发RSS抓取服务
+* 如何能够抓取多页内容
+* 乱码问题处理
+* 返回的内容处理
+* 定时抓取
+* 存储到Mongodb数据库
+* 后台管理RSS抓取源
+* 后台管理抓取到的文章, 审核发布
