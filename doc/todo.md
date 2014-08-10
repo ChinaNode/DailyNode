@@ -11,9 +11,10 @@
 
 
 ## 后台管理页
-* post 添加分类功能
 * SEO
 * 用户提交post, 添加特殊标识
+* NPM crawl 没有正确添加source
+* 用户提交添加验证码限制
 
 ## 添加抓取资源
 
@@ -24,7 +25,10 @@ http://howtonode.org/
 http://stackoverflow.com/questions/tagged/node.js
 http://nodetuts.com/
 http://www.programmableweb.com/languages/nodejs
-
+http://venturebeat.com/tag/node-js/
+http://www.infoq.com/cn/nodejs/news/10
+http://www.infoq.com/cn/nodejs/presentations/9
+http://www.infoq.com/cn/nodejs/articles/9
 
 http://blog.modulus.io/nodejs-resources
 http://code.tutsplus.com/articles/resources-to-get-you-up-to-speed-in-nodejs--cms-21431
