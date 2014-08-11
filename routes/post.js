@@ -5,6 +5,9 @@ var auth = require('../util/auth').auth
 var Post = require('../models/post')
 var Category = require('../models/category')
 
+/*
+*   Post list 
+*/
 PostRouter.get('/', auth, function * () {
     // get page params
     var page = parseInt(this.query.page || '1')
@@ -17,16 +20,21 @@ PostRouter.get('/', auth, function * () {
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
+    var cates = yield Category.tfind()
     var totalPage = Math.ceil(count / num)
     yield this.render('posts', {
         layout: 'BL',
         posts: posts,
         curPage: page,
         total: count,
+        cates: cates,
         totalPage: totalPage
     })
 })
 
+/*
+*   recommend list
+*/
 PostRouter.get('/recommend', auth, function * () {
     // get page params
     var page = parseInt(this.query.page || '1')
@@ -51,6 +59,9 @@ PostRouter.get('/recommend', auth, function * () {
     })
 })
 
+/*
+*   post detail
+*/
 PostRouter.get('/:id', auth, function * () {
     var id = this.params.id
     var post = yield Post.tfindById(id)
@@ -60,18 +71,41 @@ PostRouter.get('/:id', auth, function * () {
     })
 })
 
+/*
+*   post update
+*/
+PostRouter.put('/:id', auth, function * () {
+    var params = this.request.body.fields
+    var _id = params._id
+    yield Post.tupdate({_id: _id}, {$set: {
+        author: params.author,
+        source: params.source,
+        category: params.category
+    }})
+    this.redirect('/post/' + _id)
+})
+
+/*
+*   post hide
+*/
 PostRouter.del('/del/:id', auth, function * () {
     var id = this.params.id
     yield Post.tupdate({_id: id}, {$set: {hidden: true}})
     this.body = {code: 0, message: 'Success!'}
 })
 
+/*
+*   post recommend
+*/
 PostRouter.put('/recommend/:id', auth, function * () {
     var id = this.params.id
     yield Post.tupdate({_id: id}, {$set: {recommend: true}})
     this.body = {code: 0, message: 'Success!'}
 })
 
+/*
+*   set category
+*/
 PostRouter.put('/setcate/:id', auth, function * () {
     var id = this.params.id
     var params = this.request.body.fields

@@ -5,8 +5,7 @@
         <tr>
             <th>#</th>
             <th style='width: 500px'>Title</th>
-            <th>PubDate</th>
-            <th>Author</th>
+            <th>CreatedDate</th>
             <th>Source</th>
             <th>Action</th>
         </tr>
@@ -17,14 +16,20 @@
         <tr>
             <td><a href="/post/<%= p._id %>">#</a></td>
             <td><a href='<%= p.link %>' target='_blank'><%= p.title %></a></td>
-            <td><%=: p.pubDate | formatDate %></td>
-            <td><%=: p.author | hn %></td>
+            <td><%=: p.createdTime | formatDate %></td>
             <td><%=: p.source | hn %></td>
             <td>
                 <a data-id='<%=p._id%>' class='delete'><i class="fa fa-times"></i></a>
                 <% if (!p.recommend) { %>
                 <a data-id='<%=p._id%>' class='recommend'><i class="fa fa-thumbs-o-up"></i></a>
                 <% } %>
+                <select class='cateSelect' data-id='<%= p._id %>'>
+                    <option></option>
+                    <% for (var i in cates) { %>
+                    <% var c = cates[i] %>
+                    <option value='<%= c.name %>' <%if(p.category==c.name){%>selected<%}%>><%= c.name %></option>
+                    <% } %>
+                </select>
             </td>
         </tr>
         <% } %>

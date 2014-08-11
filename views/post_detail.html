@@ -1,7 +1,27 @@
 <h1><a href="<%= post.link %>" target='_blank'><%= post.title %></a></h1>
+
+<form class="pure-form pure-form-stacked" method="post" action="/post/<%= post._id %>">
+    <fieldset>
+        <legend>Update Post</legend>
+        <input name='_id' type='hidden' value='<%= post._id %>'/>
+        <input name='_method' value='PUT' type='hidden'/>
+        <label for="author">Author</label>
+        <input id="author" type="text" value="<%= post.author || '' %>" name='author'>
+
+        <label for="source">Source</label>
+        <input id="source" type="text" value="<%= post.source || ''%>" name='source'>
+
+        <label for="category">Category</label>
+        <input id="category" type="text" value="<%= post.category || ''%>" name='category'>
+
+        <button type="submit" class="pure-button pure-button-primary">Update</button>
+    </fieldset>
+</form>
+
 <div>
-    <p>Created by <%=: post.author | hn %> at <%=: post.pubDate | formatDate %> <a href="/post/del/<%=post._id%>">Delete</a></p>
-    <%- post.summary %>
-    <hr style='border-color:red'>
-    <%- post.description %>
+    <p>CreatedTime: <%=: post.createdTime | formatDate %></p>
+    <p>PubDate: <%=: post.pubDate | formatDate %></p>
+    <p>Summary: <%= post.summary %></p>
+    <p>Description: <%= post.description %></p>
 </div>
+

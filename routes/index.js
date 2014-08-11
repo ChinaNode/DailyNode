@@ -19,7 +19,9 @@ module.exports = function (app) {
     app.use(mount('/category', CategoryRouter.middleware()))
 }
 
-// index page
+/*
+*   index page
+*/
 IndexRouter.get('/', function * () {
     var page = parseInt(this.query.page || '1')
     var num = parseInt(this.query.num || '10')
@@ -42,7 +44,9 @@ IndexRouter.get('/', function * () {
     })
 })
 
-
+/*
+*
+*/
 IndexRouter.get('/all', function * () {
     var page = parseInt(this.query.page || '1')
     var num = parseInt(this.query.num || '10')
@@ -66,20 +70,30 @@ IndexRouter.get('/all', function * () {
     })
 })
 
+/*
+*
+*/
 IndexRouter.get('/about', function * () {
     yield this.render('about')
 })
 
-
+/*
+*
+*/
 IndexRouter.get('/submit', function * () {
     yield this.render('submit')
 })
 
+/*
+*
+*/
 IndexRouter.get('/submitsuccess', function * () {
     yield this.render('submitSuccess')
 })
 
-
+/*
+*
+*/
 IndexRouter.post('/submit', function * () {
     var params = this.request.body.fields
     if (params.title && params.url) {
@@ -89,4 +103,3 @@ IndexRouter.post('/submit', function * () {
         this.redirect('/submit')
     }
 })
-

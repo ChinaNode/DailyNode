@@ -13,10 +13,16 @@ CategoryRouter.get('/', function * () {
     yield this.render('category', {layout: 'BL', cates: cates})
 })
 
+/*
+*
+*/
 CategoryRouter.get('/new', function * () {
     yield this.render('category_new', {layout: 'BL'})
 })
 
+/*
+*
+*/
 CategoryRouter.post('/', function * () {
     var params = this.request.body.fields
     yield Category.tcreate({name: params.name})
