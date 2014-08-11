@@ -19,10 +19,6 @@
             <td><%=: p.createdTime | formatDate %></td>
             <td><%=: p.source | hn %></td>
             <td>
-                <a data-id='<%=p._id%>' class='delete'><i class="fa fa-times"></i></a>
-                <% if (!p.recommend) { %>
-                <a data-id='<%=p._id%>' class='recommend'><i class="fa fa-thumbs-o-up"></i></a>
-                <% } %>
                 <select class='cateSelect' data-id='<%= p._id %>'>
                     <option></option>
                     <% for (var i in cates) { %>
@@ -30,6 +26,10 @@
                     <option value='<%= c.name %>' <%if(p.category==c.name){%>selected<%}%>><%= c.name %></option>
                     <% } %>
                 </select>
+                <a data-id='<%=p._id%>' class='delete'><i class="fa fa-times"></i></a>
+                <% if (!p.recommend) { %>
+                <a data-id='<%=p._id%>' class='recommend'><i class="fa fa-thumbs-o-up"></i></a>
+                <% } %>
             </td>
         </tr>
         <% } %>

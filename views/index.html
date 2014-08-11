@@ -16,9 +16,13 @@
                 <% if (p.pubDate) { %>
                     Published at <%=: p.pubDate | formatDate  %>
                 <% } else { %>
+                    Created at <%=: p.createdTime | formatDate  %>
                 <% }%>
                 <% if (p.author) { %>
                     by <%= p.author %>
+                <% } %>
+                <% if (p.source) { %>
+                    at <%= p.source %>
                 <% } %>
             </p>
         </div>
