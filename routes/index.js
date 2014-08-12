@@ -2,6 +2,8 @@
 var mount = require('koa-mount')
 var Router = require('koa-router')
 var Post = require('../models/post')
+var User = require('../models/user')
+var h = require('../util/helper')
 
 // require all routers
 var IndexRouter = new Router()
@@ -73,6 +75,30 @@ IndexRouter.get('/all', function * () {
 /*
 *
 */
+IndexRouter.post('/submit', function * () {
+    var params = this.request.body.fields
+    if (params.title && params.url) {
+        yield Post.tcreate({title: params.title, link: params.url})  // info need to be complete
+        this.redirect('/submitsuccess')
+    } else {
+        this.redirect('/submit')
+    }
+})
+
+
+IndexRouter.post('/post/submit', function * () {
+    var params = this.request.body.fields
+    if (params.title && params.link) {
+        yield Post.tcreate({title: params.title, link: params.link})
+        this.body = {code: 0, message: 'Success'}
+    } else {
+        this.body = {code: 1, message: 'Lack necessary params'}
+    }
+})
+
+/*
+*
+*/
 IndexRouter.get('/about', function * () {
     yield this.render('about')
 })
@@ -94,23 +120,50 @@ IndexRouter.get('/submitsuccess', function * () {
 /*
 *
 */
-IndexRouter.post('/submit', function * () {
+IndexRouter.get('/login', function * () {
+    yield this.render('login', {layout: 'lr'})
+})
+
+/*
+*
+*/
+IndexRouter.post('/login', function * () {
     var params = this.request.body.fields
-    if (params.title && params.url) {
-        yield Post.tcreate({title: params.title, link: params.url})  // info need to be complete
-        this.redirect('/submitsuccess')
+    var data = {
+        email: params.email,
+        pwd: h.md5(params.password)
+    }
+    var user = yield User.tfindOne(data)
+    if (user) {
+        this.session.user = user
+        this.redirect('/')
     } else {
-        this.redirect('/submit')
+        this.redirect('/login')
     }
 })
 
+/*
+*
+*/
+IndexRouter.get('/register', function * () {
+    yield this.render('register', {layout: 'lr'})
+})
 
-IndexRouter.post('/post/submit', function * () {
+/*
+*
+*/
+IndexRouter.post('/register', function * () {
     var params = this.request.body.fields
-    if (params.title && params.link) {
-        yield Post.tcreate({title: params.title, link: params.link})
-        this.body = {code: 0, message: 'Success'}
+    var data = {
+        name: params.name,
+        email: params.email,
+        pwd: h.md5(params.password)
+    }
+    var user = yield User.tcreate(data)
+    if (user) {
+        this.session.user = user
+        this.redirect('/')
     } else {
-        this.body = {code: 1, message: 'Lack necessary params'}
+        this.redirect('/register')
     }
 })

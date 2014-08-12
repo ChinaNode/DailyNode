@@ -1,0 +1,38 @@
+body {
+    border-top: #5cb75c solid 5px;
+}
+
+footer {
+    height: 100px;
+    width: 100%;
+    padding: 50px 0px;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    color: #5cb75c;
+}
+
+.row {
+    margin-top: 100px;
+}
+
+.loginform {
+    height: 500px;
+    border: #5cb75c solid 1px;
+    padding: 40px 30px 0px 30px;
+}
+
+.showinfo {
+    height: 500px;
+    text-align: center;
+}
+
+.showinfo img {
+    max-height: 400px;
+}
+
+.loginform input,
+.loginform button{
+    border-radius: 1px !important;
+}
+

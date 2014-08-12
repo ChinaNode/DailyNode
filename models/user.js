@@ -8,7 +8,7 @@ var UserSchema = mongoose.Schema({
     pwd: String,
     email: {type: String, unique: true},
     createdTime: {type: Date, default: Date.now},
-    group: {type: Number, default: 1}
+    group: {type: Number, default: 1}   // 1 normal-user, 0 admin
 })
 UserSchema.plugin(pluginLastMod, {index: true})
 var User = mongoose.model('User', UserSchema)

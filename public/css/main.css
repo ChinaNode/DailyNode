@@ -30,7 +30,7 @@ header h1{
 ul.menu {
     display: inline-block;
     float: right;
-    padding-top:38px;
+    padding-top:25px;
 }
 
 .menu li{
@@ -89,4 +89,12 @@ footer {
 .container .pagination>li:last-child>a {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+}
+
+.userinfo {
+    margin-right: 7px;
+    margin-top: 5px;
+    float: right;
+    color: #5cb75c;
+    display: inline-block;
 }

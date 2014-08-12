@@ -9,7 +9,7 @@ module.exports = UserRouter
 *
 */
 UserRouter.get('/login', function * () {
-    yield this.render('login', {layout: 'L'})
+    yield this.render('dashLogin', {layout: 'L'})
 })
 
 /*
@@ -17,7 +17,7 @@ UserRouter.get('/login', function * () {
 */
 UserRouter.post('/login', function * () {
     var params = this.request.body.fields
-    var query = {name: params.account, pwd: h.md5(params.password)}
+    var query = {name: params.account, pwd: h.md5(params.password), group: 0}
     var user = yield User.tfindOne(query)
     var url
     if (user) {

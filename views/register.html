@@ -3,23 +3,22 @@
         <img src="/show-img/show<%=parseInt(4*Math.random())%>.png">
     </div>
     <div class='col-md-4 loginform'>
-        <form role="form" method='post' action='/login'>
-            <legend> Login </legend>
+        <form role="form" method='post' action='/register'>
+            <legend> Register </legend>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name='email' placeholder="Enter email" required>
             </div>
             <div class="form-group">
+                <label for="username">Name</label>
+                <input type="text" class="form-control" id="username" name='name' placeholder="User Name" required>
+            </div>
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name='password' placeholder="Password" required>
             </div>
-            <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Check me out
-                </label>
-            </div>
-            <button type="submit" class="btn btn-success">Login</button>
-            <a href="/register" class='btn'>Register</a>
+            <button type="submit" class="btn btn-success">Register</button>
+            <a href="/login" class='btn'>Login</a>
         </form>
     </div>
 </div>
