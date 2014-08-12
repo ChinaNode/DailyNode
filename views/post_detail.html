@@ -5,6 +5,9 @@
         <legend>Update Post</legend>
         <input name='_id' type='hidden' value='<%= post._id %>'/>
         <input name='_method' value='PUT' type='hidden'/>
+        <label for="title">Title</label>
+        <input id="title" type="text" value="<%= post.title || '' %>" name='title'>
+
         <label for="author">Author</label>
         <input id="author" type="text" value="<%= post.author || '' %>" name='author'>
 

@@ -80,7 +80,8 @@ PostRouter.put('/:id', auth, function * () {
     yield Post.tupdate({_id: _id}, {$set: {
         author: params.author,
         source: params.source,
-        category: params.category
+        category: params.category,
+        title: params.title
     }})
     this.redirect('/post/' + _id)
 })
