@@ -103,3 +103,14 @@ IndexRouter.post('/submit', function * () {
         this.redirect('/submit')
     }
 })
+
+
+IndexRouter.post('/post/submit', function * () {
+    var params = this.request.body.fields
+    if (params.title && params.link) {
+        yield Post.tcreate({title: params.title, link: params.link})
+        this.body = {code: 0, message: 'Success'}
+    } else {
+        this.body = {code: 1, message: 'Lack necessary params'}
+    }
+})

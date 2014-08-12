@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DNC</title>
+    <meta charset='utf8'/>
+    <link href="pure.css" rel="stylesheet">
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class='header'>
+        <h2>DNC</h2>
+    </div>
+    <form id='site-info-form' class="pure-form pure-form-aligned">
+        <input id='title' name='title' type="text" placeholder="Title" required>
+        <br/>
+        <input id='link' name='link' type="url" placeholder="Link" required>
+        <br/>
+        <button type="submit" class="pure-button pure-button-primary">添加</button>
+        <label id='info' style='display:none'>
+            添加成功
+        </label>
+        <label id='error' style='display:none'>
+            添加失败
+        </label>
+    </form>
+  </body>
+</html>
