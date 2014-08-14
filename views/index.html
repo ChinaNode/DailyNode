@@ -7,7 +7,7 @@
         </div>
         <div class="listing-content">
             <h3 class="lead">
-                <a href='<%= p.link %>' target='_blank'><%= p.title %></a>
+                <a href='/item/<%= p._id %>'><%= p.title %></a>
             </h3>
             <p>
                 <% if (p.pubDate) { %>
@@ -21,6 +21,7 @@
                 <% if (p.source) { %>
                     at <%= p.source %>
                 <% } %>
+                &nbsp;<a href="<%= p.link %>" target='_blank'>View Source</a>
             </p>
         </div>
     </div>

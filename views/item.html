@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="/css/spinner.css">
+<div class='row item'>
+    <h3>
+        <a href="<%= post.link %>" target='_blank'>
+            <%= post.title %>
+        </a>
+    </h3>
+    <p>
+        <% if (post.pubDate) { %>
+            Published at <span class='text-success'><%=: post.pubDate | formatDate %></span>
+        <% } %>
+        <% if (post.author) { %>
+            by <span class='text-success'><%= post.author %></span>
+        <% } %>
+        <% if (post.source) { %>
+            from <span class='text-success'><%= post.source %></span>
+        <% } %>
+        <% if (post.category) { %>
+            in <span class='text-success'><%= post.category %></span>
+        <% } %>
+    </p>
+    <div style='width:100%;height:500px;'>
+        <div class="spinner" style='margin-top:200px'></div>
+    </div>
+    <iframe id='item_iframe' class='post_content' src="<%= post.link %>" style='display:none'></iframe>
+</div>
+<script src="/lib/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('iframe.post_content').on('load', function () {
+            $('.spinner').parent().remove();
+            $(this).show();
+            // check if body is empty to verify whether it load success
+        }).on('error', function () {
+            $('.spinner').parent().remove();
+            $(this).show();
+        })
+    })
+</script>
+

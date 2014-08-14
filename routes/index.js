@@ -85,7 +85,9 @@ IndexRouter.post('/submit', function * () {
     }
 })
 
-
+/*
+*
+*/
 IndexRouter.post('/post/submit', function * () {
     var params = this.request.body.fields
     if (params.title && params.link) {
@@ -94,6 +96,17 @@ IndexRouter.post('/post/submit', function * () {
     } else {
         this.body = {code: 1, message: 'Lack necessary params'}
     }
+})
+
+/*
+*
+*/
+IndexRouter.get('/item/:id', function * () {
+    var id = this.params.id
+    var post = yield Post.tfindById(id)
+    yield this.render('item', {
+        post: post
+    })
 })
 
 /*
@@ -134,7 +147,6 @@ IndexRouter.get('/logout', function * () {
     this.session.user = null
     this.redirect('/')
 })
-
 
 /*
 *
@@ -189,7 +201,9 @@ IndexRouter.post('/register', function * () {
     }
 })
 
-
+/*
+*
+*/
 IndexRouter.get('/test', function * () {
     try{
         var user = yield User.tcreate({name: 'hello', pwd: 'helloo', email: 'hello@some.com'})

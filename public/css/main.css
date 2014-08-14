@@ -73,7 +73,7 @@ footer {
     padding: 10px 20px 50px 20px;
 }
 
-.about, .submitsuccess, .submit {
+.about, .submitsuccess, .submit, .item {
     border: 1px solid #5cb75c;
 }
 
@@ -97,4 +97,21 @@ footer {
     float: right;
     color: #5cb75c;
     display: inline-block;
+}
+
+.item {
+    padding: 0px 50px 50px 50px;
+}
+
+.post_content {
+    margin-top: 15px;
+    width: 100%;
+    height:500px;
+    border:none;
+}
+
+
+.row .spinner {
+    position: absolute;
+    left: 48%;
 }
