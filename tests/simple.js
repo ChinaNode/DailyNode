@@ -1,5 +1,12 @@
-var task = require('../scripts/spider')
+var co = require('co')
+var assert = require('assert')
+var ctx = {};
 
+function foo() {
+  assert(this == ctx);
+}
 
-
-function * () {}
+co(function *(){
+  assert(this == ctx);
+  yield foo;
+}).call(ctx)

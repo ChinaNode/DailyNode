@@ -121,8 +121,20 @@ IndexRouter.get('/submitsuccess', function * () {
 *
 */
 IndexRouter.get('/login', function * () {
-    yield this.render('login', {layout: 'lr'})
+    yield this.render('login', {
+        layout: 'lr',
+        error: this.flash.error || ''
+    })
 })
+
+/*
+*
+*/
+IndexRouter.get('/logout', function * () {
+    this.session.user = null
+    this.redirect('/')
+})
+
 
 /*
 *
@@ -138,6 +150,7 @@ IndexRouter.post('/login', function * () {
         this.session.user = user
         this.redirect('/')
     } else {
+        this.flash = {error: 'User not exist or password wrong !'}
         this.redirect('/login')
     }
 })
@@ -146,7 +159,10 @@ IndexRouter.post('/login', function * () {
 *
 */
 IndexRouter.get('/register', function * () {
-    yield this.render('register', {layout: 'lr'})
+    yield this.render('register', {
+        layout: 'lr',
+        error: this.flash.error || ''
+    })
 })
 
 /*
@@ -154,16 +170,31 @@ IndexRouter.get('/register', function * () {
 */
 IndexRouter.post('/register', function * () {
     var params = this.request.body.fields
-    var data = {
-        name: params.name,
-        email: params.email,
-        pwd: h.md5(params.password)
-    }
-    var user = yield User.tcreate(data)
+    var name = params.name
+    var email = params.email
+    var query = {$or: [{name: name}, {email: email}]}
+    var user = yield User.tfindOne(query)
     if (user) {
-        this.session.user = user
-        this.redirect('/')
-    } else {
+        this.flash = {error: "This name or email already have been used !"}
         this.redirect('/register')
+    } else {
+        var data = {
+            name: name,
+            email: email,
+            pwd: h.md5(params.password)
+        }
+        var newuser = yield User.tcreate(data)
+        this.session.user = newuser
+        this.redirect('/')
+    }
+})
+
+
+IndexRouter.get('/test', function * () {
+    try{
+        var user = yield User.tcreate({name: 'hello', pwd: 'helloo', email: 'hello@some.com'})
+        this.body = {message: 'some message'}
+    }catch(e){
+        this.body = {message: e.message}
     }
 })

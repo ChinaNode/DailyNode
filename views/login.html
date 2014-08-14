@@ -20,6 +20,10 @@
             </div>
             <button type="submit" class="btn btn-success">Login</button>
             <a href="/register" class='btn'>Register</a>
+            <% if (error) { %>
+            <br><br>
+            <span class='text-danger'><%= error %></span>
+            <% } %>
         </form>
     </div>
 </div>

@@ -6,6 +6,7 @@ var session = require('koa-session')
 var compress = require('koa-compress')
 var responseTime = require('koa-response-time')
 var ejsRender = require('koa-ejs')
+var flash = require('koa-flash')
 var path = require('path')
 var config = require('./configs/config.json')
 // var auth = require('koa-basic-auth')
@@ -20,6 +21,7 @@ app.use(serve(path.join(__dirname, '/public')))
 app.use(logger())
 app.keys = ['node-news-secret-pana']
 app.use(session())
+app.use(flash())
 app.use(compress({
     filter: function (content_type) {
         return /text/i.test(content_type)
@@ -33,7 +35,11 @@ ejsRender(app, {
     viewExt: 'html',
     debug: true,
     cache: false,
-    locals: {},
+    locals: {
+        user: function () {
+            return this.session.user
+        }
+    },
     filters: filters
 })
 // app.use(auth({name: 'pana', pass: 'wang'}))

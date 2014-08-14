@@ -27,7 +27,11 @@
         <span class='sitename'>Daily Node</span>
       </h1>
       <div class='userinfo'>
+        <% if (user) { %>
+         <%= user.name %> | <a href="/logout">Logout</a>
+        <% } else { %>
         <a href="/login">Login</a> | <a href="/register">Register</a>
+        <% } %>
       </div>
       <div style='clear:right;'></div>
       <ul class='menu'>
