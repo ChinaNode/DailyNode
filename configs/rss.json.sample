@@ -15,6 +15,10 @@
         {
             "name": "Joyent Node video",
             "url": "https://www.joyent.com/developers/node/video-feed"
+        },
+        {
+            "name": "Joyent Node",
+            "url": "https://www.joyent.com/developers/node/feed"
         }
     ]
 }
