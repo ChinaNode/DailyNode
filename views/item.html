@@ -19,22 +19,22 @@
             in <span class='text-success'><%= post.category %></span>
         <% } %>
     </p>
-    <div style='width:100%;height:500px;'>
+<!--     <div style='width:100%;height:500px;'>
         <div class="spinner" style='margin-top:200px'></div>
     </div>
-    <iframe id='item_iframe' class='post_content' src="<%= post.link %>" style='display:none'></iframe>
+ -->    <iframe id='item_iframe' class='post_content' src="/preview/<%= post._id %>"></iframe>
 </div>
 <script src="/lib/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
-    $(function () {
-        $('iframe.post_content').on('load', function () {
-            $('.spinner').parent().remove();
-            $(this).show();
-            // check if body is empty to verify whether it load success
-        }).on('error', function () {
-            $('.spinner').parent().remove();
-            $(this).show();
-        })
-    })
+    // $(function () {
+    //     $('iframe.post_content').on('load', function () {
+    //         $('.spinner').parent().remove();
+    //         $(this).show();
+    //         // check if body is empty to verify whether it load success
+    //     }).on('error', function () {
+    //         $('.spinner').parent().remove();
+    //         $(this).show();
+    //     })
+    // })
 </script>
 

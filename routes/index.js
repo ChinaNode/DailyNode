@@ -4,6 +4,11 @@ var Router = require('koa-router')
 var Post = require('../models/post')
 var User = require('../models/user')
 var h = require('../util/helper')
+var request = require('co-request')
+var path = require('path')
+var fs = require('co-fs')
+var urlHelper = require('url')
+var cheerio = require('cheerio')
 
 // require all routers
 var IndexRouter = new Router()
@@ -212,3 +217,82 @@ IndexRouter.get('/test', function * () {
         this.body = {message: e.message}
     }
 })
+
+/*
+*
+*/
+IndexRouter.get('/preview/:id', function * () {
+    var id = this.params.id
+    var file = path.join(__dirname, '../tmp/previews/', id + '.html')
+    try{
+        var exist = yield fs.exists(file)
+        var content
+        if (exist) {
+            content = yield fs.readFile(file, 'utf8')
+        } else {
+            var p = yield Post.tfindById(id)
+            if (p) {
+                var result = yield request(p.link)
+                content = expandRelative(result.body, p.link)
+                yield fs.writeFile(file, content)
+            } else {
+                content = "<h3>404</h3>"
+            }
+        }
+        this.body = content
+    }catch(e){
+        this.body = "<h3>404</h3>"
+    }
+})
+
+
+function expandRelative (html, url) {
+    html = replace(html, url)
+    var $ = cheerio.load(html)
+    $('link').each(function () {
+        var href = $(this).attr('href')
+        $(this).attr('href', _replace(href, url))
+    })
+    $('script').each(function () {
+        var src = $(this).attr('src')
+        $(this).attr('src', _replace(src, url))
+    })
+    $('img').each(function () {
+        var src = $(this).attr('src')
+        $(this).attr('src', _replace(src, url))
+    })
+    return $.html()
+}
+
+function hostName (link) {
+    var o = urlHelper.parse(link)
+    var h = o.protocol + '//' + o.hostname
+    if(o.port) h += ':' + o.port
+    return h
+}
+
+function replace (html, url) {
+    var reg = /url\("(.+)"\)/g
+    var reg2 = /url\('(.+)'\)/g
+    html = html.replace(reg, function (match, link) {
+        var newL = _replace(link, url)
+        return match.replace(link, newL)
+    })
+    html = html.replace(reg, function (match, link) {
+        var newL = _replace(link, url)
+        return match.replace(link, newL)
+    })
+    return html
+}
+
+function _replace (origin, url) {
+    if(!origin || !url) return origin
+    if(origin.indexOf('//') == 0 || origin.indexOf('http') == 0) return origin
+    var h = hostName(url)
+    if(origin.indexOf('/') == 0)
+        return h + origin
+    if(origin.indexOf('./') == 0)
+        origin = origin.replace('./', '')
+    if(!/\/$/.test(url)) url += '/'
+    return url + origin
+}

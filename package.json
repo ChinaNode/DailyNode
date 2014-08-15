@@ -8,6 +8,8 @@
     "bufferhelper": "^0.2.0",
     "cheerio": "^0.17.0",
     "co": "^3.0.6",
+    "co-fs": "^1.2.0",
+    "co-request": "^0.2.0",
     "feedparser": "^0.17.0",
     "iconv-lite": "^0.4.3",
     "koa": "^0.8.0",
