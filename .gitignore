@@ -3,3 +3,4 @@ bower_components
 reference
 configs/*.json
 log/*
+tmp/previews/*
