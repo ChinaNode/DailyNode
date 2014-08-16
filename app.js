@@ -13,6 +13,7 @@ var config = require('./configs/config.json')
 var koaBody = require('koa-better-body')
 var filters = require('./util/filters')
 var methodOverride = require('./util/overRide')
+var koa404 = require('./util/koa-404')
 
 //
 var app = koa()
@@ -22,6 +23,7 @@ app.use(logger())
 app.keys = ['node-news-secret-pana']
 app.use(session())
 app.use(flash())
+app.use(koa404())
 app.use(compress({
     filter: function (content_type) {
         return /text/i.test(content_type)

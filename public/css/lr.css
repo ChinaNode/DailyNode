@@ -1,5 +1,5 @@
 body {
-    border-top: #5cb75c solid 5px;
+    border-top: #dd514c solid 5px;
 }
 
 footer {
@@ -24,11 +24,6 @@ footer {
 
 .showinfo {
     height: 500px;
-    text-align: center;
-}
-
-.showinfo img {
-    max-height: 400px;
 }
 
 .loginform input,
