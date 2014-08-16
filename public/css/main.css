@@ -110,8 +110,11 @@ footer {
     border:none;
 }
 
-
 .row .spinner {
     position: absolute;
     left: 48%;
+}
+
+.myhide {
+    display: none;
 }

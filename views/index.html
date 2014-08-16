@@ -22,6 +22,13 @@
                     at <%= p.source %>
                 <% } %>
                 &nbsp;<a href="<%= p.link %>" target='_blank'>View Source</a>
+                 | 
+                <!-- <a href="/item/<%= p._id %>"><i class="fa fa-comments-o"></i></a> -->
+                <a class='likeBtn' data-href="/post/like/<%= p._id %>">
+                    <span class='num'><%= p.like %></span>
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <span class='message myhide'>Already liked</span>
+                </a>
             </p>
         </div>
     </div>

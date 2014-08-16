@@ -2,7 +2,9 @@
 var Router = require('koa-router')
 var PostRouter = new Router()
 var auth = require('../util/auth').auth
+var authJson = require('../util/auth').authJson
 var Post = require('../models/post')
+var Like = require('../models/likes')
 var Category = require('../models/category')
 
 /*
@@ -113,6 +115,22 @@ PostRouter.put('/setcate/:id', auth, function * () {
     var cate = params.category
     yield Post.tupdate({_id: id}, {$set: {category: cate}})
     this.body = {code: 0, message: 'Success!'}
+})
+
+/*
+*   post like
+*/
+PostRouter.get('/like/:id', authJson, function * () {
+    var id = this.params.id
+    var uName = this.session.user.name
+    var liked = yield Like.tfindOne({postId: id, userName: uName})
+    if (liked) {
+        this.body = {code: 2, message: 'Already liked'}
+    } else {
+        yield Like.tcreate({postId: id, userName: uName})
+        yield Post.tupdate({_id: id}, {$inc: {like: 1}})
+        this.body = {code: 0, message: 'Success'}
+    }
 })
 
 module.exports = PostRouter
