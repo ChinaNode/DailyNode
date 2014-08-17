@@ -118,3 +118,8 @@ footer {
 .myhide {
     display: none;
 }
+
+.shareBtn iframe{
+    height: 19px !important;
+}
+

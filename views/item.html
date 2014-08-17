@@ -18,6 +18,7 @@
         <% if (post.category) { %>
             in <span class='text-success'><%= post.category %></span>
         <% } %>
+        <wb:share-button class='shareBtn' appkey="690cIX" addition="simple" type="icon" ralateUid="3922574721" default_text="<%= post.title%>" picture_search="false"></wb:share-button>
     </p>
     <div style='width:100%;height:500px;'>
         <div class="spinner" style='margin-top:200px'></div>
@@ -30,7 +31,6 @@
         $('iframe.post_content').on('load', function () {
             $('.spinner').parent().remove();
             $(this).show();
-            // check if body is empty to verify whether it load success
         }).on('error', function () {
             $('.spinner').parent().remove();
             $(this).show();
