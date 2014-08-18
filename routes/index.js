@@ -4,6 +4,7 @@ var Router = require('koa-router')
 var Post = require('../models/post')
 var User = require('../models/user')
 var h = require('../util/helper')
+var createSM = require('../util/sitemap')
 var request = require('co-request')
 var path = require('path')
 var fs = require('co-fs')
@@ -216,6 +217,17 @@ IndexRouter.get('/test', function * () {
     }catch(e){
         this.body = {message: e.message}
     }
+})
+
+/*
+*
+*/
+IndexRouter.get('/sitemap.xml', function * () {
+    var posts = yield Post.tfind()
+    var urls = posts.map(function (item) {return '/item/' + item._id})
+    var xml = yield createSM(urls)
+    this.set('Content-Type', 'application/xml')
+    this.body = xml
 })
 
 /*
