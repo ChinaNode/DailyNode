@@ -223,7 +223,7 @@ IndexRouter.get('/test', function * () {
 *
 */
 IndexRouter.get('/sitemap.xml', function * () {
-    var posts = yield Post.tfind()
+    var posts = yield Post.tfind({hidden: false})
     var urls = posts.map(function (item) {return '/item/' + item._id})
     var xml = yield createSM(urls)
     this.set('Content-Type', 'application/xml')
