@@ -1,28 +1,27 @@
 ## TODO
 * captcha
 * dashboard search
-* 标识用户提交posts
 
+## update
+* 添加分类页面, 右上角添加分类链接
 
-## 用户登录注册
-* 登录,注册失败, 在相应页面给出原因
-* 注册进行邮箱,name检查
-* 登录成功后添加session, 并在header部分显示用户名
+## responsive 优化
 
-4. 新浪微博分享
+## iframe 嵌入
+* http://localhost:3000/item/53ee127251408f8c922ce405
+* http://localhost:3000/preview/53ee127251408f8c922ce403
+* css 中图片的路径没法替换
+* iframe 加载太慢了
 
-## 首页
-* post item 添加分类或tag, 展示更多信息, 支持like(登录)
+## 注册成功发送邮件
+
+## TOUSE
+* https://github.com/ruipgil/scraperjs
+* https://github.com/ageitgey/node-unfluff?utm_source=nodeweekly&utm_medium=email
 
 ## 后台管理页
-* SEO
-* 用户提交添加验证码限制
-
-
-
 
 ## 添加抓取资源
-
 http://nodejsreactions.tumblr.com/
 http://nodeup.com/
 http://www.planetnodejs.com/     可参考设计样式
@@ -34,7 +33,7 @@ http://venturebeat.com/tag/node-js/
 http://www.infoq.com/cn/nodejs/news/10
 http://www.infoq.com/cn/nodejs/presentations/9
 http://www.infoq.com/cn/nodejs/articles/9
-
+https://nodesource.com/blog
 http://blog.modulus.io/nodejs-resources
 http://code.tutsplus.com/articles/resources-to-get-you-up-to-speed-in-nodejs--cms-21431
 http://architects.dzone.com/articles/40-resources-nodejs-developer
