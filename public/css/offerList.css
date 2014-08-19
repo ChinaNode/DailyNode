@@ -85,3 +85,39 @@
 .listing-content {
     padding: 0 20px 10px;
 }
+.listing-pblue {
+    border-color: #0e90d2;
+}
+.listing-pblue .shape {
+    border-color: transparent #0e90d2 transparent transparent;
+}
+.listing-ppurple {
+    border-color: rgb(128, 88, 165);
+}
+.listing-ppurple .shape {
+    border-color: transparent rgb(128, 88, 165) transparent transparent;
+}
+.listing-pgreen {
+    border-color: #5eb95e;
+}
+.listing-pgreen .shape {
+    border-color: transparent #5eb95e transparent transparent;
+}
+.listing-pred {
+    border-color: #dd514c;
+}
+.listing-pred .shape {
+    border-color: transparent #dd514c transparent transparent;
+}
+.listing-porange {
+    border-color: rgb(243, 123, 29);
+}
+.listing-porange .shape {
+    border-color: transparent rgb(243, 123, 29) transparent transparent;
+}
+.listing-pyellow {
+    border-color: rgb(250, 210, 50);
+}
+.listing-pyellow .shape {
+    border-color: transparent rgb(250, 210, 50) transparent transparent;
+}

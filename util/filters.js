@@ -33,7 +33,11 @@ module.exports = {
             'Code': 'listing-info',
             'News': 'listing-primary',
             'NPM': 'listing-warning',
-            'Star': 'listing-danger'
+            'Star': 'listing-danger',
+			'Cool': 'listing-ppurple',
+			'Site': 'listing-pgreen',
+			'Github': 'listing-pblue',
+			'Tool': 'listing-pyellow'
         }
         className = mapper[item] || 'listing-success'
         return className
@@ -47,4 +51,12 @@ module.exports = {
     listing-primary
     listing-info
     listing-warning
+	listing-pblue
+	listing-ppurple
+	listing-pgreen
+	listing-pred
+	listing-porange
+	listing-pyellow
+
+
 */
