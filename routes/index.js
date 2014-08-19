@@ -111,7 +111,8 @@ IndexRouter.get('/item/:id', function * () {
     var id = this.params.id
     var post = yield Post.tfindById(id)
     yield this.render('item', {
-        post: post
+        post: post,
+        title: post.title
     })
 })
 
