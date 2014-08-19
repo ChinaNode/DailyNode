@@ -92,7 +92,7 @@ IndexRouter.post('/submit', function * () {
 })
 
 /*
-*
+* used by chrome extension
 */
 IndexRouter.post('/post/submit', function * () {
     var params = this.request.body.fields

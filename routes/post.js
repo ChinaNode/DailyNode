@@ -1,7 +1,7 @@
 'use strict'
 var Router = require('koa-router')
 var PostRouter = new Router()
-var auth = require('../util/auth').auth
+var auth = require('../util/auth').adminAuth
 var authJson = require('../util/auth').authJson
 var Post = require('../models/post')
 var Like = require('../models/likes')
