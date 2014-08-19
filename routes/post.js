@@ -18,7 +18,7 @@ PostRouter.get('/', auth, function * () {
     var opts = {
         limit: num,
         skip: (page-1)*num,
-        sort: {createdTime: -1}
+        sort: {top: -1, createdTime: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
@@ -45,7 +45,7 @@ PostRouter.get('/recommend', auth, function * () {
     var opts = {
         limit: num,
         skip: (page-1)*num,
-        sort: {createdTime: -1}
+        sort: {top: -1, createdTime: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
@@ -83,7 +83,8 @@ PostRouter.put('/:id', auth, function * () {
         author: params.author,
         source: params.source,
         category: params.category,
-        title: params.title
+        title: params.title,
+		top: params.top
     }})
     this.redirect('/post/' + _id)
 })

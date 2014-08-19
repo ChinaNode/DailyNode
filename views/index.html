@@ -8,6 +8,9 @@
         <div class="listing-content">
             <h3 class="lead">
                 <a href='/item/<%= p._id %>'><%= p.title %></a>
+				<% if (p.top) { %>
+				<i class="fa fa-arrow-up" style="color:#5cb75c" ></i>
+				<% } %>
             </h3>
             <p>
                 <% if (p.pubDate) { %>

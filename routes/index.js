@@ -40,7 +40,7 @@ IndexRouter.get('/', function * () {
     var opts = {
         limit: num,
         skip: skip,
-        sort: {createdTime: -1}
+        sort: {top: -1, createdTime: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
@@ -66,7 +66,7 @@ IndexRouter.get('/all', function * () {
     var opts = {
         limit: num,
         skip: skip,
-        sort: {createdTime: -1}
+        sort: {top: -1, createdTime: -1}
     }
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)

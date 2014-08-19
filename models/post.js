@@ -13,6 +13,7 @@ var PostSchema = mongoose.Schema({
     author: String,
     createdTime: {type: Date, default: Date.now},
     like: {type: Number, default: 0},
+	top: {type: Number, default: 0},
     source: String,
     category: String,
     hidden: {type: Boolean, default: false},
