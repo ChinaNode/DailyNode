@@ -14,6 +14,7 @@ var koaBody = require('koa-better-body')
 var filters = require('./util/filters')
 var methodOverride = require('./util/overRide')
 var koa404 = require('./util/koa-404')
+var koaError = require('koa-error')
 
 //
 var app = koa()
@@ -23,6 +24,7 @@ app.use(logger())
 app.keys = ['node-news-secret-pana']
 app.use(session())
 app.use(flash())
+app.use(koaError({template: './views/error.html'}))
 app.use(koa404())
 app.use(compress({
     filter: function (content_type) {

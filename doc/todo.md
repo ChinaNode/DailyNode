@@ -6,6 +6,10 @@
 * 添加分类页面, 右上角添加分类链接
 
 ## responsive 优化
+* 主页头部
+* 登录,注册页
+
+## 搜索优化
 
 ## iframe 嵌入
 * http://localhost:3000/item/53ee127251408f8c922ce405
@@ -14,6 +18,12 @@
 * iframe 加载太慢了
 
 ## 注册成功发送邮件
+
+## 安全问题
+* 验证码, 添加
+* 检查端口号是否打开
+
+## 数据库备份
 
 ## TOUSE
 * https://github.com/ruipgil/scraperjs
