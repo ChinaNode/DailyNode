@@ -35,7 +35,7 @@ IndexRouter.get('/', function * () {
     var num = parseInt(this.query.num || '10')
     var query = {recommend: true, hidden: false}
     var skip = (page - 1) * num
-    if(this.query.keyword)
+    if (this.query.keyword)
         query.title = new RegExp(this.query.keyword, 'i')
     var opts = {
         limit: num,
@@ -61,7 +61,7 @@ IndexRouter.get('/all', function * () {
     var query = {recommend: true, hidden: false}
     var skip = (page - 1) * num
     var query = {hidden: false}
-    if(this.query.keyword)
+    if (this.query.keyword)
         query.title = new RegExp(this.query.keyword, 'i')
     var opts = {
         limit: num,
@@ -212,10 +212,10 @@ IndexRouter.post('/register', function * () {
 *
 */
 IndexRouter.get('/test', function * () {
-    try{
+    try {
         var user = yield User.tcreate({name: 'hello', pwd: 'helloo', email: 'hello@some.com'})
         this.body = {message: 'some message'}
-    }catch(e){
+    } catch(e) {
         this.body = {message: e.message}
     }
 })
@@ -237,7 +237,7 @@ IndexRouter.get('/sitemap.xml', function * () {
 IndexRouter.get('/preview/:id', function * () {
     var id = this.params.id
     var file = path.join(__dirname, '../tmp/previews/', id + '.html')
-    try{
+    try {
         var exist = yield fs.exists(file)
         var content
         if (exist) {
@@ -253,7 +253,7 @@ IndexRouter.get('/preview/:id', function * () {
             }
         }
         this.body = content
-    }catch(e){
+    } catch (e) {
         this.body = "<h3>404</h3>"
     }
 })
@@ -299,13 +299,13 @@ function replace (html, url) {
 }
 
 function _replace (origin, url) {
-    if(!origin || !url) return origin
-    if(origin.indexOf('//') == 0 || origin.indexOf('http') == 0) return origin
+    if (!origin || !url) return origin
+    if (origin.indexOf('//') == 0 || origin.indexOf('http') == 0) return origin
     var h = hostName(url)
-    if(origin.indexOf('/') == 0)
+    if (origin.indexOf('/') == 0)
         return h + origin
-    if(origin.indexOf('./') == 0)
+    if (origin.indexOf('./') == 0)
         origin = origin.replace('./', '')
-    if(!/\/$/.test(url)) url += '/'
+    if (!/\/$/.test(url)) url += '/'
     return url + origin
 }
