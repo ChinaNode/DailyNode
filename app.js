@@ -24,7 +24,7 @@ app.use(logger())
 app.keys = ['node-news-secret-pana']
 app.use(session())
 app.use(flash())
-app.use(koaError({template: './views/error.html'}))
+app.use(koaError({template: __dirname + '/views/error.html'}))
 app.use(koa404())
 app.use(compress({
     filter: function (content_type) {
