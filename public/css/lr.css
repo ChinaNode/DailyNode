@@ -31,3 +31,8 @@ footer {
     border-radius: 1px !important;
 }
 
+@media (max-width: 640px) {
+	.showinfo {
+		display: none !important;	
+	}	
+}

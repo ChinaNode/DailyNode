@@ -123,3 +123,8 @@ footer {
     height: 20px !important;
 }
 
+@media (max-width: 640px) {
+	.menu {
+		display: none !important;	
+	}
+}
