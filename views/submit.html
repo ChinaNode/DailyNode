@@ -16,6 +16,9 @@
       <div class="form-group">
         <div class="col-sm-offset-1 col-sm-4">
           <button type="submit" class="btn btn-success">Submit</button>
+		  <% if (error) { %>
+		  &nbsp;&nbsp;<span class="text-danger"><%= error %></span>
+		  <% } %>
         </div>
       </div>
     </form>

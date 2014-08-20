@@ -82,13 +82,16 @@ IndexRouter.get('/all', function * () {
 *
 */
 IndexRouter.post('/submit', function * () {
-    var params = this.request.body.fields
-    if (params.title && params.url) {
-        yield Post.tcreate({title: params.title, link: params.url})  // info need to be complete
-        this.redirect('/submitsuccess')
-    } else {
-        this.redirect('/submit')
-    }
+    var params = this.request.body.fields // asume title and link required is worked
+	var data = {title: params.title, link: params.url}
+	var exist = Post.tfindOne(data)
+	if (exist) {
+		this.flash = {error: "This title already exist"}
+		this.redirect('/submit')
+	} else {
+		yield Post.tcreate(data)
+		this.redirect('/submitsuccess')
+	}
 })
 
 /*
@@ -127,7 +130,7 @@ IndexRouter.get('/about', function * () {
 *
 */
 IndexRouter.get('/submit', function * () {
-    yield this.render('submit')
+    yield this.render('submit', {error: this.flash.error || ''})
 })
 
 /*
