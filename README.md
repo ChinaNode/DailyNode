@@ -12,8 +12,9 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 
 ## Reference
 
+* [Growthhackers](http://growthhackers.com/)
 * [EchoJS](http://www.echojs.com/)
-* [Hacker News]()
+* [Hacker News](https://news.ycombinator.com/)
 * [DailyJs](http://dailyjs.com/)
 * [planetnodejs](http://www.planetnodejs.com/)
 

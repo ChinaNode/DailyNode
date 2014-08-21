@@ -19,3 +19,7 @@ a:visited {
 .paginator {
     margin-top: 20px;
 }
+
+form.pure-form input {
+	width: 500px;
+}

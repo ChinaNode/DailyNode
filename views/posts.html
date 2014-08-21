@@ -15,7 +15,10 @@
         <% var p = posts[i] %>
         <tr>
             <td><a href="/post/<%= p._id %>">#</a></td>
-            <td><a href='<%= p.link %>' target='_blank'><%= p.title %></a></td>
+            <td>
+				<a href='<%= p.link %>' target='_blank'><%= p.title %></a>
+				<i data-id="<%= p._id %>" class="topdown fa fa-arrow-<%= p.top ? 'down' : 'up' %>"></i>
+			</td>
             <td><%=: p.createdTime | formatDate %></td>
             <td><%=: p.source | hn %></td>
             <td>

@@ -62,4 +62,23 @@ $(function () {
         });
     })
 
+	$('.topdown').click(function () {
+		var $this = $(this)
+		var cla = $this.attr('class').replace('topdown fa fa-arrow-', '')
+		var id = $this.data('id')
+		
+		$.ajax({
+			url: '/post/topdown/' + id,
+			dataType: 'JSON',
+			type: 'PUT',
+			data: {now: cla},
+			success: function (result) {
+				if (result.code == 0) {
+					$this.removeClass('fa-arrow-' + cla);
+					$this.addClass('fa-arrow-' + (cla == 'up' ? 'down' : 'up'));
+				}
+			}
+		})
+	})
+
 })

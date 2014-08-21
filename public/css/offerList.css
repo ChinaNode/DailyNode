@@ -16,7 +16,7 @@
     margin: 15px 0;
     overflow: hidden;
 }
-.listing:hover {
+/*.listing:hover {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -26,7 +26,7 @@
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-}
+}*/
 .shape {
     border-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);
 }

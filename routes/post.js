@@ -134,4 +134,17 @@ PostRouter.get('/like/:id', authJson, function * () {
     }
 })
 
+
+/*
+* set post top
+*/
+PostRouter.put('/topdown/:id', auth, function * () {
+	var id = this.params.id
+	var params = this.request.body.fields
+	var newval = params.now == 'up' ? 1 : 0
+	console.log(params.now, newval)
+	yield Post.tupdate({_id: id}, {$set: {top: newval}})
+	this.body = {code: 0}
+})
+
 module.exports = PostRouter
