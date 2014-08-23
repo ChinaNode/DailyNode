@@ -6,6 +6,12 @@ var authJson = require('../util/auth').authJson
 var Post = require('../models/post')
 var Like = require('../models/likes')
 var Category = require('../models/category')
+var request = require('co-request')
+var summary = require('node-summary')
+var unfluff = require('unfluff')
+var thunkify = require('thunkify')
+var summarize = thunkify(summary.summarize)
+var cheerio = require('cheerio')
 
 /*
 *   Post list 
@@ -82,9 +88,7 @@ PostRouter.put('/:id', auth, function * () {
     yield Post.tupdate({_id: _id}, {$set: {
         author: params.author,
         source: params.source,
-        category: params.category,
-        title: params.title,
-		top: params.top
+        title: params.title
     }})
     this.redirect('/post/' + _id)
 })
@@ -142,9 +146,43 @@ PostRouter.put('/topdown/:id', auth, function * () {
 	var id = this.params.id
 	var params = this.request.body.fields
 	var newval = params.now == 'up' ? 1 : 0
-	console.log(params.now, newval)
 	yield Post.tupdate({_id: id}, {$set: {top: newval}})
 	this.body = {code: 0}
+})
+
+/*
+* extract content
+*/
+PostRouter.post('/getcontent/:id', auth, function * () {
+	var id = this.params.id
+	var link = this.request.body.fields.link
+	try {
+		var result = yield request(link)
+		//var data = unfluff(result.body)
+		//var summ = yield summarize(data.title, data.text)		
+		var $ = cheerio.load(result.body)
+		this.body = {code: 0, content: $('body').html()}
+	} catch (e) {
+		this.body = {code: 1, message: e.message}
+	} 
+})
+
+
+/*
+* post html preview
+*/
+PostRouter.get('/preview/:id', auth, function * () {
+	var id = this.params.id
+	var post = yield Post.tfindOne({_id: id})
+	if (post) {
+		var result = yield request(post.link)
+		yield this.render('preview', {
+			layout: 'EL', 
+			content: result.body
+		})
+	} else {
+		this.body = '<h2>Some Error</h2>'
+	}
 })
 
 module.exports = PostRouter

@@ -1,0 +1,78 @@
+<style>
+	.container {
+		height: 100%;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+	}
+	.left {
+		float: left;
+		height: 100%;
+		width: 50%;
+	}
+	.left textarea{
+		height: 100%;
+		width: 100%;
+	}
+	.right {
+		float: left;
+		height: 100%;
+		width: 49%;
+		border-left: black solid 1px;
+	}
+	.right iframe {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+	.CodeMirror {
+		height: 100% !important;
+	}
+</style>
+<link rel=stylesheet href=/lib/codemirror-4.3/lib/codemirror.css>
+<link rel="stylesheet" href="/lib/codemirror-4.3/addon/fold/foldgutter.css" />
+<script src=/lib/codemirror-4.3/lib/codemirror.js></script>
+<script src=/lib/codemirror-4.3/mode/xml/xml.js></script>
+<script src=/lib/codemirror-4.3/mode/javascript/javascript.js></script>
+<script src=/lib/codemirror-4.3/mode/css/css.js></script>
+<script src=/lib/codemirror-4.3/mode/htmlmixed/htmlmixed.js></script>
+<script src="/lib/codemirror-4.3/addon/fold/foldcode.js"></script>
+<script src="/lib/codemirror-4.3/addon/fold/foldgutter.js"></script>
+<script src="/lib/codemirror-4.3/addon/fold/xml-fold.js"></script>
+<div class='container'>
+	<div class='left'>
+		<textarea id='editor'><%= content %></textarea>
+	</div>
+	<div class='right'>
+		<iframe id='preview'></iframe>
+	</div>
+</div>
+
+<script>
+	  var delay;
+      // Initialize CodeMirror editor with a nice html5 canvas demo.
+      var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+        mode: 'text/html',
+		lineNumbers: true,
+		lineWrapping: true,
+		foldGutter: true,
+		extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+		gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+      });
+      editor.on("change", function() {
+        clearTimeout(delay);
+        delay = setTimeout(updatePreview, 300);
+      });
+      
+      function updatePreview() {
+        var previewFrame = document.getElementById('preview');
+        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+        preview.open();
+        preview.write(editor.getValue());
+        preview.close();
+      }
+      setTimeout(updatePreview, 300);
+   
+</script>
