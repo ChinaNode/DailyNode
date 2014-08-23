@@ -150,23 +150,6 @@ PostRouter.put('/topdown/:id', auth, function * () {
 	this.body = {code: 0}
 })
 
-/*
-* extract content
-*/
-PostRouter.post('/getcontent/:id', auth, function * () {
-	var id = this.params.id
-	var link = this.request.body.fields.link
-	try {
-		var result = yield request(link)
-		//var data = unfluff(result.body)
-		//var summ = yield summarize(data.title, data.text)		
-		var $ = cheerio.load(result.body)
-		this.body = {code: 0, content: $('body').html()}
-	} catch (e) {
-		this.body = {code: 1, message: e.message}
-	} 
-})
-
 
 /*
 * post html preview

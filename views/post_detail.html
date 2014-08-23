@@ -22,33 +22,10 @@
 <div>
     <p>CreatedTime: <%=: post.createdTime | formatDate %></p>
     <p>PubDate: <%=: post.pubDate | formatDate %></p>
-	<textarea cols="100" rows="20" id='extractContent'></textarea>
     <p>
 		Description:
-		<button data-id="<%= post._id %>" data-link="<%= post.link %>" type='button' class='getcontent pure-button pure-button-primary'>Get Content</button>
+		<a href='/post/preview/<%= post._id%>' target='_blank' class='pure-button'>Get Content</a>
 		<br/> 
 		<%- post.description %>
 	</p>
 </div>
-<script src="/lib/jquery-2.1.1.min.js"></script>
-<script>
-	$(function () {
-		$('.getcontent').click(function () {
-			var $this = $(this)
-			var id = $this.data('id')
-			var link = $this.data('link')
-			$.ajax({
-				url: "/post/getcontent/" + id,
-				dataType: 'JSON',
-				type: 'POST',
-				data: {link: link},
-				success: function (result) {
-					if (result.code == 0) {
-						$('#extractContent').val(result.content)
-					}
-				}
-			})
-		})
-	
-	})
-</script>
