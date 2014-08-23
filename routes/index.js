@@ -113,10 +113,14 @@ IndexRouter.post('/post/submit', function * () {
 IndexRouter.get('/item/:id', function * () {
     var id = this.params.id
     var post = yield Post.tfindById(id)
-    yield this.render('item', {
-        post: post,
-        title: post.title
-    })
+    if (post) {
+		yield this.render('item', {
+			post: post,
+			title: post.title
+		})
+	} else {
+		yield this.render('empty_item')
+	}
 })
 
 /*
