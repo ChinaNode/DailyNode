@@ -28,3 +28,16 @@ function extractPost ($dom) {
 	})
 	return ps
 }
+
+
+exports.crawl2 = function getPost (url, cbk) {
+	request(url, function (err, response, body) {
+		if (err) return cbk(null, [])
+		$ = cheerio.load(body)
+		var $post = $('.list_article .single_fake')
+		var posts = extractPost($post)
+		cbk(null, posts)
+	})
+}
+
+

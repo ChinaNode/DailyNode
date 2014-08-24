@@ -1,12 +1,17 @@
-var co = require('co')
-var assert = require('assert')
-var ctx = {};
+var url = 'http://www.tuicool.com/topics/11060028?st=0&lang=0&pn='
 
-function foo() {
-  assert(this == ctx);
-}
 
-co(function *(){
-  assert(this == ctx);
-  yield foo;
-}).call(ctx)
+var crawl = require('../scripts/tuicool').crawl2
+var createPost = require('../scripts/spider').createPost
+var async = require('async')
+
+
+var id = process.argv[2] || 0
+
+console.log(id)
+crawl(url+id, function (err, posts) {
+	console.log(posts.length)
+	async.eachSeries(posts, createPost, function () {
+		console.log('finish')
+	})
+})

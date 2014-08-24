@@ -5,6 +5,8 @@ var async = require('async')
 var db = require('../models/db')  // connect db
 var logger = require('../util/logger').infoLogger
 
+exports.createPost = createPost
+
 //
 function createPost (post, cbk) {
     Post.findOne({title: post.title}, function (err, data) {
