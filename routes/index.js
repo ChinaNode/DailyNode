@@ -332,9 +332,9 @@ function _replace (origin, url) {
 
 function hasContent(post) {
 	var source = ['NodeSource', 'StackOverFlow', 'StrongLoop', 'Nodejitsu', 'NPM', 'Nodejs.org']
-	if (source.indexOf(post.source) > -1) {
-		return true
-	}
+	if (source.indexOf(post.source) > -1) return true
 	if (post.link.match('blog.nodejs.org')) return true
+	if (post.source == 'EchoJS') return false
+	if (post.description || post.summary) return true
 	return false
 }
