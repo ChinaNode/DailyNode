@@ -8,18 +8,7 @@ $(function () {
             vars[hash[0]] = hash[1];
         }
         return vars;
-    }
-
-    // set search keyword to search box and pagination link if have one 
-    var query = getUrlVars();
-    if (query.keyword) {
-        $('[name="keyword"]').val(query.keyword);
-        $('.pagination a').each(function () {
-            var $this = $(this)
-            $this.attr('href', $this.attr('href') + '&keyword=' + query.keyword)
-        })
     }*/
-
 
     $('.likeBtn').click(function (e) {
         e.preventDefault()
