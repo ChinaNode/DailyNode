@@ -2,14 +2,9 @@
 * captcha
 * dashboard search
 
-## update
-* 添加分类页面, 右上角添加分类链接
-
 ## responsive 优化
 * 主页头部
 * 登录,注册页
-
-## 搜索优化
 
 ## iframe 嵌入
 * http://localhost:3000/item/53ee127251408f8c922ce405
@@ -28,6 +23,7 @@
 ## TOUSE
 * https://github.com/ruipgil/scraperjs
 * https://github.com/ageitgey/node-unfluff?utm_source=nodeweekly&utm_medium=email
+* http://jbrooksuk.github.io/node-summary/
 
 ## 后台管理页
 
@@ -49,3 +45,4 @@ http://code.tutsplus.com/articles/resources-to-get-you-up-to-speed-in-nodejs--cm
 http://architects.dzone.com/articles/40-resources-nodejs-developer
 http://www.smashingmagazine.com/2011/09/16/useful-node-js-tools-tutorials-and-resources/
 http://www.tuicool.com/topics/11060028?st=0&lang=0&pn=0
+https://www.joyent.com/noderoad/videos   added by hand
