@@ -128,7 +128,8 @@ IndexRouter.get('/item/:id', function * () {
     if (post) {
 		yield this.render('item', {
 			post: post,
-			title: post.title
+			title: post.title,
+			hasContent: hasContent(post)
 		})
 	} else {
 		yield this.render('empty_item')
@@ -327,4 +328,13 @@ function _replace (origin, url) {
         origin = origin.replace('./', '')
     if (!/\/$/.test(url)) url += '/'
     return url + origin
+}
+
+function hasContent(post) {
+	var source = ['NodeSource', 'StackOverFlow', 'StrongLoop', 'Nodejitsu', 'NPM', 'Nodejs.org']
+	if (source.indexOf(post.source) > -1) {
+		return true
+	}
+	if (post.link.match('blog.nodejs.org')) return true
+	return false
 }

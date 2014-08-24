@@ -68,7 +68,7 @@ function extractPost (index, element) {
     }
     $this.find('h1').remove()
     $this.find('.meta').remove()
-    post.desription = $this.html()
+    post.description = $this.html()
     return post
 }
 
