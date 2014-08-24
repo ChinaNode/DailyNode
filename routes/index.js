@@ -48,6 +48,7 @@ IndexRouter.get('/', function * () {
         posts: posts,
         totalCount: count,
         curPage: page,
+		keyword: this.query.keyword || '',
         totalPage: Math.ceil(count / num)
     })
 })
@@ -74,6 +75,7 @@ IndexRouter.get('/all', function * () {
         posts: posts,
         totalCount: count,
         curPage: page,
+		keyword: this.query.keyword || '',
         totalPage: Math.ceil(count / num)
     })
 })
