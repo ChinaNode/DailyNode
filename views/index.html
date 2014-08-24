@@ -3,7 +3,7 @@
 <div class="row">
     <div class="listing <%=: p.category | cateClass %>">
         <div class="shape">
-            <div class="shape-text"><%= p.category || '' %></div>
+            <div class="shape-text"><a href="?category=<%= p.category %>" style='color:white;'><%= p.category || '' %></a></div>
         </div>
         <div class="listing-content">
             <h3 class="lead">
@@ -40,6 +40,7 @@
 
 <div class='pagination'>
 	<% var str = keyword ? '&keyword='+keyword : '' %>
+	<% str += category ? '&category='+category : '' %>
     <% if (curPage - 1 > 0) { %>
     <li><a href="?page=<%= curPage - 1 %><%= str %>">&laquo;</a></li>
     <% } %>

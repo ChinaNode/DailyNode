@@ -33,10 +33,14 @@ module.exports = function (app) {
 IndexRouter.get('/', function * () {
     var page = parseInt(this.query.page || '1')
     var num = parseInt(this.query.num || '10')
+	var keyword = this.query.keyword
+	var category = this.query.category
     var query = {recommend: true, hidden: false}
     var skip = (page - 1) * num
-    if (this.query.keyword)
-        query.title = new RegExp(this.query.keyword, 'i')
+    if (keyword)
+        query.title = new RegExp(keyword, 'i')
+	if (category)
+		query.category = category
     var opts = {
         limit: num,
         skip: skip,
@@ -48,7 +52,8 @@ IndexRouter.get('/', function * () {
         posts: posts,
         totalCount: count,
         curPage: page,
-		keyword: this.query.keyword || '',
+		keyword: keyword || '',
+		category: category || '',
         totalPage: Math.ceil(count / num)
     })
 })
@@ -60,10 +65,14 @@ IndexRouter.get('/all', function * () {
     var page = parseInt(this.query.page || '1')
     var num = parseInt(this.query.num || '10')
     var query = {recommend: true, hidden: false}
+	var keyword = this.query.keyword
+	var category = this.query.category
     var skip = (page - 1) * num
     var query = {hidden: false}
-    if (this.query.keyword)
-        query.title = new RegExp(this.query.keyword, 'i')
+    if (keyword)
+        query.title = new RegExp(keyword, 'i')
+	if (category)
+		query.category = category
     var opts = {
         limit: num,
         skip: skip,
@@ -75,7 +84,8 @@ IndexRouter.get('/all', function * () {
         posts: posts,
         totalCount: count,
         curPage: page,
-		keyword: this.query.keyword || '',
+		keyword: keyword || '',
+		category: category || '',
         totalPage: Math.ceil(count / num)
     })
 })
