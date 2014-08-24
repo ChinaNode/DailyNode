@@ -93,6 +93,14 @@ function crawlNodeSource (callback) {
 	})
 }
 
+function crawlTuicool (callback) {
+	logger.info('crawl tuicool')
+	var crawl = require('./tuicool').crawl
+	crawl(function (err, posts) {
+		async.eachSeries(posts, createPost, callback)
+	})
+}
+
 function crawl () {
 	var tasks = [
 		crawlRSS, 
@@ -100,7 +108,8 @@ function crawl () {
 		crawlSL, 
 		crawlNodeWeek, 
 		crawlVentureBeat,
-		crawlNodeSource
+		crawlNodeSource,
+		crawlTuicool
 	]
     async.series(tasks, function () {
         logger.info('End once \n\n')
