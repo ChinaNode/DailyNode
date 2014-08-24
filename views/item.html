@@ -17,6 +17,7 @@
         <% if (post.category) { %>
             in <span class='text-success'><%= post.category %></span>
         <% } %>
+		<a href="<%= post.link %>" target='_blank'>View Source</a>
         <wb:share-button class='shareBtn' appkey="690cIX" addition="simple" type="icon" ralateUid="3922574721" default_text="DailyNode: <%= post.title %>" picture_search="false"></wb:share-button>
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="coderpana" data-text="DailyNode: <%= post.title %>"></a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
