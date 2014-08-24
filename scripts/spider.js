@@ -77,8 +77,32 @@ function crawlNodeWeek (callback) {
     })
 }
 
+function crawlVentureBeat (callback) {
+	logger.info('Crawl VentureBeat')
+	var crawl = require('./venturebeat').crawl
+	crawl(function (err, posts) {
+		async.eachSeries(posts, createPost, callback)
+	})
+}
+
+function crawlNodeSource (callback) {
+	logger.info('Crawl NodeSource')
+	var crawl = require('./nodeSource').crawl
+	crawl(function (err, posts) {
+		async.eachSeries(posts, createPost, callback)
+	})
+}
+
 function crawl () {
-    async.series([crawlRSS, crawlNodejs, crawlSL, crawlNodeWeek], function () {
+	var tasks = [
+		crawlRSS, 
+		crawlNodejs, 
+		crawlSL, 
+		crawlNodeWeek, 
+		crawlVentureBeat,
+		crawlNodeSource
+	]
+    async.series(tasks, function () {
         logger.info('End once \n\n')
     })
 }

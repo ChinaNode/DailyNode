@@ -19,6 +19,14 @@
         {
             "name": "Joyent Node",
             "url": "https://www.joyent.com/developers/node/feed"
-        }
+        },
+		{
+			"name": "StackOverflow",
+			"url" : "http://stackoverflow.com/feeds/tag?tagnames=node.js&sort=featured"
+		},
+		{
+			"name": "StackOverFlow",
+			"url": "http://stackoverflow.com/feeds/tag/node.js"
+		}
     ]
 }
