@@ -126,6 +126,7 @@ IndexRouter.get('/item/:id', function * () {
     var id = this.params.id
     var post = yield Post.tfindById(id)
     if (post) {
+		yield updatePost(post)
 		yield this.render('item', {
 			post: post,
 			title: post.title,
@@ -338,4 +339,24 @@ function hasContent(post) {
 	if (noSource.indexOf(post.source) > -1) return false
 	if (post.description || post.summary) return true
 	return false
+}
+
+// update post
+function * updatePost (post) {
+	if (!post.description && post.link.match('tuicool.com')) {
+		var result = yield request(post.link)
+		var $ = cheerio.load(result.body)
+		var description = $('#nei > div').html()
+		var link = $('.article_meta .source a').text()
+		yield Post.tupdate({_id: post._id}, {$set: {description: description, link: link}})
+		post.description = description
+		post.link = link
+	}
+	if (!post.description && post.link.match('github.com')) {
+		var result = yield request(post.link)
+		var $ = cheerio.load(result.body)
+		var description = $('#readme').html()
+		yield Post.tupdate({_id: post._id}, {$set: {description: description, source: 'GitHub'}})
+		post.description = description
+	}
 }
