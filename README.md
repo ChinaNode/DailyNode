@@ -27,4 +27,4 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 * cheerio
 * feedParser
 
-
+simpl
