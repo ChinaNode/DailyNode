@@ -352,7 +352,7 @@ function * updatePost (post) {
 		post.description = description
 		post.link = link
 	}
-	if (!post.description && post.link.match('github.com')) {
+	if  (post.link.match('github.com') && (!post.description || post.source == 'EchoJS')) {
 		var result = yield request(post.link)
 		var $ = cheerio.load(result.body)
 		var description = $('#readme').html()
