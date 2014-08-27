@@ -127,6 +127,7 @@ IndexRouter.get('/item/:id', function * () {
     var post = yield Post.tfindById(id)
     if (post) {
 		yield updatePost(post)
+		yield Post.tupdate({_id: id}, {$inc: {visit: 1}})
 		yield this.render('item', {
 			post: post,
 			title: post.title,
