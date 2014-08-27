@@ -14,7 +14,7 @@
         <% for (var i in posts) { %>
         <% var p = posts[i] %>
         <tr>
-            <td><a href="/post/<%= p._id %>">#</a></td>
+            <td><a href="/post/<%= p._id %>"><%=p.like%>/<%=p.visit%></a></td>
             <td>
 				<a href='<%= p.link %>' target='_blank'><%= p.title %></a>
 				<i data-id="<%= p._id %>" class="topdown fa fa-arrow-<%= p.top ? 'down' : 'up' %>"></i>
