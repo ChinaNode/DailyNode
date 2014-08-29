@@ -5,8 +5,6 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 
 ## RoadMap
 
-* Enable user like
-* RSS
 * Share to twitter, facebook, weibo
 * Comment
 
@@ -27,4 +25,13 @@ Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 * cheerio
 * feedParser
 
-simpl
+
+## How to run
+First you need install node newer than 0.11.09 and mongoDB.
+
+1. Check the code
+2. `npm install` 
+3. add config files to configs folder, you can find template there
+4. Seed data: `cd scripts & node seedData.js`
+5. start the app with harmony flag: `node --harmony app.js`
+6. visit at: localhost:3000
