@@ -27,6 +27,10 @@
 		{
 			"name": "NodeSecurity",
 			"url": "http://blog.nodesecurity.io/rss"
+		},
+		{
+			"name": "Jxcore",
+			"url": "http://jxcore.com/feed/"
 		}
     ]
 }
