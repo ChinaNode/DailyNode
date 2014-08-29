@@ -5,6 +5,7 @@ var Post = require('../models/post')
 var User = require('../models/user')
 var h = require('../util/helper')
 var createSM = require('../util/sitemap')
+var genRss = require('../util/rss').genRss
 var request = require('co-request')
 var path = require('path')
 var fs = require('co-fs')
@@ -251,6 +252,16 @@ IndexRouter.get('/sitemap.xml', function * () {
     var xml = yield createSM(urls)
     this.set('Content-Type', 'application/xml')
     this.body = xml
+})
+
+
+/*
+* Feed
+*/
+IndexRouter.get('/feed', function * () {
+	var posts = yield Post.tfind({hidden: false, recommend: true}, null, {limit: 30, sort: {createdTime: -1}})
+	this.set('Content-Type', 'application/xml')
+	this.body = genRss(posts)
 })
 
 /*
