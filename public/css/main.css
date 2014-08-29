@@ -36,7 +36,8 @@ ul.menu {
 .menu li{
     float: left;
     list-style-type: none;
-    width: 100px;
+    width: auto;
+	margin-left: 25px;
     font-size: 20px;
 }
 
