@@ -3,6 +3,8 @@ Daily Node
 
 Daily Node is a aggregator of Node.js news, blog, video, podcast and others.
 
+![](http://blog.rednode.cn/content/images/2014/Aug/Screen_Shot_2014_08_10_at_22_07_17.png)
+
 ## RoadMap
 
 * Share to twitter, facebook, weibo
