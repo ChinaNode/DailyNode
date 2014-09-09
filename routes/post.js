@@ -27,9 +27,8 @@ PostRouter.get('/', auth, function * () {
         sort: {top: -1, createdTime: -1}
     }
 	if(this.query.orderByName)
-		opts.sort = {title: 1}
+		opts.sort = {title: -1}
 		
-		console.log(opts)
     var posts = yield Post.tfind(query, null, opts)
     var count = yield Post.tcount(query)
     var cates = yield Category.tfind()
@@ -40,6 +39,7 @@ PostRouter.get('/', auth, function * () {
         curPage: page,
         total: count,
         cates: cates,
+		orderByName: this.query.orderByName,
         totalPage: totalPage
     })
 })
